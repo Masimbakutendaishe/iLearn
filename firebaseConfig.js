@@ -1,24 +1,21 @@
 // firebaseConfig.js
 import { initializeApp } from "firebase/app";
-import { getFirestore, doc, getDoc } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 
+// Use environment variables for secrets
 const firebaseConfig = {
-  apiKey: "AIzaSyCVa10GbxFyIq30cQwdWsHjYxKcMEcZa8c",
+  apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.NEXT_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: process.env.NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.NEXT_PUBLIC_FIREBASE_MEASUREMENT_ID,
+};
 
-  authDomain: "ilearn3.firebaseapp.com",
-
-  projectId: "ilearn3",
-
-  storageBucket: "ilearn3.firebasestorage.app",
-
-  messagingSenderId: "12005226459",
-
-  appId: "1:12005226459:web:a246554ad95563789819fe",
-
-  measurementId: "G-S3E0J7J0LL"
-  };
-
-  const app = initializeApp(firebaseConfig);
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-export { db };
+// Export both app and db
+export { app, db };
