@@ -29,14 +29,14 @@ export default function ParentsSubjectsDetailPageLifeSkills() {
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-green-100 to-teal-100 text-gray-800">
+
       {/* Header */}
       <div className="bg-green-400 mt-35 text-white p-4 rounded-xl flex items-center justify-between">
-        {/* Back Button */}
+
         <button onClick={() => router.back()}>
           <Image src="/pointer.png" alt="Back" width={24} height={24} />
         </button>
 
-        {/* Search Bar / Icon */}
         {isSearchBarVisible ? (
           <input
             className="flex-1 mx-4 px-2 py-1 rounded text-black"
@@ -50,7 +50,6 @@ export default function ParentsSubjectsDetailPageLifeSkills() {
           </button>
         )}
 
-        {/* Icon Navigation */}
         <div className="flex justify-evenly items-center flex-1 gap-3">
           {[
             {
@@ -89,7 +88,6 @@ export default function ParentsSubjectsDetailPageLifeSkills() {
             </button>
           ))}
 
-          {/* Static Icons */}
           <button className="hover:text-blue-200 transition">
             <FaBell size={20} />
           </button>
@@ -111,22 +109,35 @@ export default function ParentsSubjectsDetailPageLifeSkills() {
       {/* Intro */}
       <div className="px-4 py-6 text-center">
         <p className="text-lg mb-4">
-          Hello parent of, @emailuser.com, I am Mrs Nyoni, your child's Life Skills teacher!
+          Hello parent of, @emailuser.com, I am Mrs Nyoni, your child&apos;s Life Skills teacher!
         </p>
+
         <div className="flex justify-center mb-4">
           <Image src="/teacher1.png" alt="Teacher" width={100} height={100} />
         </div>
-        <p className="text-lg">Welcome to our Life Skills class, where we grow and learn life together!</p>
+
+        <p className="text-lg">
+          Welcome to our Life Skills class, where we grow and learn life together!
+        </p>
       </div>
 
       {/* Activity Section */}
       <div className="mt-6 px-4 flex flex-col items-center">
         <div className="relative w-full max-w-md">
           <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-green-300 to-teal-500 z-10 rounded shadow-md flex items-center justify-center">
-            <Image src="/book2.png" alt="Activity" width={60} height={60} className="absolute right-6 bottom-5 z-20" />
+
+            <Image
+              src="/book2.png"
+              alt="Activity"
+              width={60}
+              height={60}
+              className="absolute right-6 bottom-5 z-20"
+            />
+
             <p className="text-lg font-semibold text-white">
-              Today’s Focus: "Taking Responsibility"
+              Today&apos;s Focus: &quot;Taking Responsibility&quot;
             </p>
+
           </div>
         </div>
       </div>
@@ -135,8 +146,19 @@ export default function ParentsSubjectsDetailPageLifeSkills() {
       <div className="mt-36 px-4 flex flex-col items-center">
         <div className="relative w-full max-w-md">
           <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-teal-300 to-green-500 z-10 rounded shadow-md flex items-center justify-center">
-            <Image src="/pencil.png" alt="Pencil" width={60} height={60} className="absolute right-6 bottom-5 z-20" />
-            <p className="text-lg font-semibold text-white">Life Skills Homework</p>
+
+            <Image
+              src="/pencil.png"
+              alt="Pencil"
+              width={60}
+              height={60}
+              className="absolute right-6 bottom-5 z-20"
+            />
+
+            <p className="text-lg font-semibold text-white">
+              Life Skills Homework
+            </p>
+
           </div>
         </div>
       </div>
@@ -144,31 +166,58 @@ export default function ParentsSubjectsDetailPageLifeSkills() {
       {/* Homework Card */}
       <div className="mt-36 flex justify-center">
         <div className="bg-green-100 p-4 rounded shadow-md w-full max-w-md text-center">
-          <p className="text-lg font-bold mb-2">Week 1 Life Skills Homework</p>
-          <p className="text-sm">Practice helping with a small task at home and write about it.</p>
-          <p className="text-sm">Due: 02/01/2025, 5PM</p>
+
+          <p className="text-lg font-bold mb-2">
+            Week 1 Life Skills Homework
+          </p>
+
+          <p className="text-sm">
+            Practice helping with a small task at home and write about it.
+          </p>
+
+          <p className="text-sm">
+            Due: 02/01/2025, 5PM
+          </p>
+
           <button
             onClick={handleSubmit}
-            className={`mt-3 px-4 py-2 rounded text-white ${isSubmitted ? 'bg-green-600' : 'bg-teal-500'}`}
+            className={`mt-3 px-4 py-2 rounded text-white ${
+              isSubmitted ? "bg-green-600" : "bg-teal-500"
+            }`}
           >
-            {isSubmitted ? 'Submitted ✅' : 'Read More and Submit ✍️'}
+            {isSubmitted ? "Submitted ✅" : "Read More and Submit ✍️"}
           </button>
+
         </div>
       </div>
 
       {/* Timetable Section */}
       <div className="mt-10 px-4 flex flex-col items-center">
         <div className="relative w-full max-w-md">
+
           <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-teal-300 to-green-500 z-10 rounded shadow-md flex items-center justify-center">
-            <Image src="/clock.png" alt="Clock" width={60} height={60} className="absolute right-6 bottom-5 z-20" />
-            <p className="text-lg font-semibold text-white">Their Timetable</p>
+
+            <Image
+              src="/clock.png"
+              alt="Clock"
+              width={60}
+              height={60}
+              className="absolute right-6 bottom-5 z-20"
+            />
+
+            <p className="text-lg font-semibold text-white">
+              Their Timetable
+            </p>
+
           </div>
+
         </div>
       </div>
 
       {/* Timetable */}
       <div className="mt-36 px-4 overflow-x-auto">
         <table className="w-full table-auto border border-collapse border-gray-300 text-center bg-white rounded shadow-md">
+
           <thead>
             <tr className="bg-green-200">
               <th className="border px-2 py-1">Day/Time</th>
@@ -179,18 +228,28 @@ export default function ParentsSubjectsDetailPageLifeSkills() {
               <th className="border px-2 py-1">1-2 PM</th>
             </tr>
           </thead>
+
           <tbody>
             {["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"].map((day) => (
               <tr key={day} className="odd:bg-white even:bg-gray-100">
-                <td className="border px-2 py-1 font-bold">{day}</td>
+
+                <td className="border px-2 py-1 font-bold">
+                  {day}
+                </td>
+
                 {["Life Skills", "Language", "Life Skills", "Literature", "Language"].map((subj, idx) => (
-                  <td key={idx} className="border px-2 py-1">{subj}</td>
+                  <td key={idx} className="border px-2 py-1">
+                    {subj}
+                  </td>
                 ))}
+
               </tr>
             ))}
           </tbody>
+
         </table>
       </div>
+
     </div>
   );
 }

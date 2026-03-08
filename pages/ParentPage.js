@@ -2,12 +2,8 @@ import { useState } from "react";
 import { useRouter } from "next/router";
 import Image from "next/image";
 import { FaSearch, FaBook, FaLanguage, FaAccessibleIcon, FaSignOutAlt, FaBell, FaReceipt, FaChartLine } from "react-icons/fa";
-import {
-    IoPerson,
-    IoBook,
-    IoSchool,
-    IoMegaphone,
-  } from "react-icons/io5"; // Ionicons for web (react-icons)
+import { IoPerson, IoBook, IoSchool, IoMegaphone } from "react-icons/io5"; 
+
 export default function ParentPage() {
   const router = useRouter();
   const [isSearchBarVisible, setSearchBarVisible] = useState(false);
@@ -18,7 +14,7 @@ export default function ParentPage() {
   };
 
   const SubjectCard = ({ icon, color, subject, due }) => (
-    <div className=" bg-white rounded-xl shadow-lg p-4 m-2 w-48 flex-shrink-0 text-center">
+    <div className="bg-white rounded-xl shadow-lg p-4 m-2 w-48 flex-shrink-0 text-center">
       <div className="text-2xl mx-auto" style={{ color }}>{icon}</div>
       <p className="font-semibold text-gray-700 mt-2">{subject}</p>
       <p className="text-xs text-gray-500">Due: {due}</p>
@@ -42,96 +38,68 @@ export default function ParentPage() {
 
   return (
     <div className="mt-30 min-h-screen bg-gradient-to-br from-purple-100 to-blue-100 p-4">
-     <div className="bg-purple-600 text-white p-4 rounded-xl flex items-center justify-between">
-      {/* Back Button */}
-      <button onClick={() => router.back()}>
-        <Image src="/pointer.png" alt="Back" width={24} height={24} />
-      </button>
-
-      {/* Search Bar / Icon */}
-      {isSearchBarVisible ? (
-        <input
-          className="flex-1 mx-4 px-2 py-1 rounded text-black"
-          autoFocus
-          placeholder="Type to search..."
-          onBlur={() => setSearchBarVisible(false)}
-        />
-      ) : (
-        <button onClick={() => setSearchBarVisible(true)} className="mx-4">
-          <FaSearch size={20} />
+     
+      {/* Header */}
+      <div className="bg-purple-600 text-white p-4 rounded-xl flex items-center justify-between">
+        <button onClick={() => router.back()}>
+          <Image src="/pointer.png" alt="Back" width={24} height={24} />
         </button>
-      )}
 
-      {/* Icon Navigation */}
-      <div className="flex justify-evenly items-center flex-1 gap-3">
-        {[
-          {
-            icon: <IoPerson size={24} />,
-            label: "Profile",
-            route: "/ParentPage",
-          },
-          {
-            icon: <IoBook size={24} />,
-            label: "Subjects",
-            route: "/ParentsSubjectsPage",
-          },
-          {
-            icon: <FaChartLine size={24} />,
-            label: "Progress",
-            route: "/ProgressTrackerPage",
-          },
-          {
-            icon: <IoMegaphone size={24} />,
-            label: "Announcements",
-            route: "/Announcements",
-          },
-          {
-            icon: <FaReceipt size={20} />,
-            label: "Reports",
-            route: "/parent-subject-progress",
-          },
-        ].map((item, index) => (
-          <button
-            key={index}
-            onClick={() => router.push(item.route)}
-            className="group flex flex-col items-center text-white hover:text-orange-400 transition"
-          >
-            {item.icon}
-            <span className="text-xs mt-1">{item.label}</span>
+        {isSearchBarVisible ? (
+          <input
+            className="flex-1 mx-4 px-2 py-1 rounded text-black"
+            autoFocus
+            placeholder="Type to search..."
+            onBlur={() => setSearchBarVisible(false)}
+          />
+        ) : (
+          <button onClick={() => setSearchBarVisible(true)} className="mx-4">
+            <FaSearch size={20} />
           </button>
-        ))}
+        )}
 
-        {/* Static Icons */}
-        <button className="hover:text-orange-400 transition">
-          <FaBell size={20} />
-        </button>
+        <div className="flex justify-evenly items-center flex-1 gap-3">
+          {[
+            { icon: <IoPerson size={24} />, label: "Profile", route: "/ParentPage" },
+            { icon: <IoBook size={24} />, label: "Subjects", route: "/ParentsSubjectsPage" },
+            { icon: <FaChartLine size={24} />, label: "Progress", route: "/ProgressTrackerPage" },
+            { icon: <IoMegaphone size={24} />, label: "Announcements", route: "/Announcements" },
+            { icon: <FaReceipt size={20} />, label: "Reports", route: "/parent-subject-progress" },
+          ].map((item, index) => (
+            <button
+              key={index}
+              onClick={() => router.push(item.route)}
+              className="group flex flex-col items-center text-white hover:text-orange-400 transition"
+            >
+              {item.icon}
+              <span className="text-xs mt-1">{item.label}</span>
+            </button>
+          ))}
 
-        <button className="hover:text-orange-400 transition">
-          <FaSignOutAlt size={20} />
-        </button>
+          <button className="hover:text-orange-400 transition">
+            <FaBell size={20} />
+          </button>
 
-        <Image
-          src="/dad.png"
-          alt="Profile"
-          width={32}
-          height={32}
-          className="rounded-full"
-        />
+          <button className="hover:text-orange-400 transition">
+            <FaSignOutAlt size={20} />
+          </button>
+
+          <Image src="/dad.png" alt="Profile" width={32} height={32} className="rounded-full" />
+        </div>
       </div>
-    </div>
 
       {/* Profile Info */}
       <div className="text-center mt-6">
         <Image src="/dad.png" alt="Dad" width={80} height={80} className="rounded-full mx-auto" />
         <p className="text-sm text-gray-600 mt-2">
-          email@example.com, this is your iLearn Parental Profile, where you can engage actively in your little one's development!
+          email@example.com, this is your iLearn Parental Profile, where you can engage actively in your little one&apos;s development!
         </p>
       </div>
 
       {/* Homework Section */}
       <div className="mt-8">
         <SectionHeader
-          title="Your Star's Homework"
+          title="Your Star&apos;s Homework"
           imgSrc="/book2.png"
           gradientFrom="#a18cd1"
           gradientTo="#fbc2eb"

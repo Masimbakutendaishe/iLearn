@@ -77,11 +77,15 @@ export default function ParentsSubjectsDetailPageEnglish() {
 
       {/* Intro */}
       <div className="px-4 py-6 text-center">
-        <p className="text-lg mb-4">Hello parent of, @emailuser.com, I am Mrs Dlamini, your child’s English Teacher!</p>
+        <p className="text-lg mb-4">
+          Hello parent of, @emailuser.com, I am Mrs Dlamini, your child&apos;s English Teacher!
+        </p>
         <div className="flex justify-center mb-4">
           <Image src="/teacher1.png" alt="Teacher" width={100} height={100} />
         </div>
-        <p className="text-lg">Welcome to our exciting English Language journey!</p>
+        <p className="text-lg">
+          Welcome to our exciting English Language journey!
+        </p>
       </div>
 
       {/* English Activity */}
@@ -89,7 +93,9 @@ export default function ParentsSubjectsDetailPageEnglish() {
         <div className="relative w-full max-w-md">
           <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-blue-400 to-green-400 z-10 rounded shadow-md flex items-center justify-center">
             <Image src="/book2.png" alt="Books" width={60} height={60} className="absolute right-6 bottom-5 z-20" />
-            <p className="text-lg font-semibold text-white">Today we explore: "Nouns+Verbs"</p>
+            <p className="text-lg font-semibold text-white">
+              Today we explore: &quot;Nouns+Verbs&quot;
+            </p>
           </div>
         </div>
       </div>
@@ -99,7 +105,9 @@ export default function ParentsSubjectsDetailPageEnglish() {
         <div className="relative w-full max-w-md">
           <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-r from-green-300 to-blue-500 z-10 rounded shadow-md flex items-center justify-center">
             <Image src="/pencil.png" alt="Pencil" width={60} height={60} className="absolute right-6 bottom-5 z-20" />
-            <p className="text-lg font-semibold text-white">Today's English Homework</p>
+            <p className="text-lg font-semibold text-white">
+              Today&apos;s English Homework
+            </p>
           </div>
         </div>
       </div>

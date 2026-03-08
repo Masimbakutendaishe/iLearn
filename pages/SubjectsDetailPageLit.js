@@ -1,3 +1,4 @@
+'use client';
 import { useState } from "react";
 import Image from "next/image";
 import { IoIosSearch, IoIosNotifications, IoIosPerson } from "react-icons/io";
@@ -68,13 +69,17 @@ const SubjectsDetailPageLit = () => {
           This is where we will have all the Literature Fun!
         </p>
 
-        {/* Overlapping Rectangles with modern design */}
+        {/* Overlapping Rectangles */}
         <div className="flex justify-center items-center relative w-full mt-8 space-y-4">
           <div className="absolute w-4/5 h-16 bg-pink-500 rounded-lg flex justify-center items-center top-0 shadow-xl transform hover:scale-105 transition-all ease-in-out duration-300">
-            <p className="text-white text-lg font-semibold">Today we are doing: "Cinderella"</p>
+            <p className="text-white text-lg font-semibold">
+              Today we are doing: &quot;Cinderella&quot;
+            </p>
           </div>
           <div className="absolute w-4/5 h-16 bg-pink-500 rounded-lg flex justify-center items-center top-20 shadow-xl transform hover:scale-105 transition-all ease-in-out duration-300">
-            <p className="text-white text-lg font-semibold">Today's Literature Homework</p>
+            <p className="text-white text-lg font-semibold">
+              Today&apos;s Literature Homework
+            </p>
           </div>
         </div>
 
@@ -98,7 +103,6 @@ const SubjectsDetailPageLit = () => {
           <div className="absolute w-4/5 h-16 bg-pink-500 rounded-lg flex justify-center items-center top-0 shadow-xl transform hover:scale-105 transition-all ease-in-out duration-300">
             <p className="text-white text-lg font-semibold">TIMETABLE</p>
           </div>
-          
         </div>
 
         {/* Timetable Table */}

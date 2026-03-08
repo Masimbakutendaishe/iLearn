@@ -1,3 +1,4 @@
+'use client';
 import { useState } from "react";
 import Image from "next/image";
 import { IoIosSearch, IoIosNotifications, IoIosPerson } from "react-icons/io";
@@ -71,19 +72,29 @@ const SubjectsDetailPageLanguage = () => {
         {/* Overlapping Rectangles with modern design */}
         <div className="flex justify-center items-center relative w-full mt-8 space-y-4">
           <div className="absolute w-4/5 h-16 bg-pink-500 rounded-lg flex justify-center items-center top-0 shadow-xl transform hover:scale-105 transition-all ease-in-out duration-300">
-            <p className="text-white text-lg font-semibold">Today we are doing: "Nouns and Verbs"</p>
+            <p className="text-white text-lg font-semibold">
+              Today we are doing: &quot;Nouns and Verbs&quot;
+            </p>
           </div>
           <div className="absolute w-4/5 h-16 bg-pink-500 rounded-lg flex justify-center items-center top-20 shadow-xl transform hover:scale-105 transition-all ease-in-out duration-300">
-            <p className="text-white text-lg font-semibold">Today's Language Homework</p>
+            <p className="text-white text-lg font-semibold">
+              Today&apos;s Language Homework
+            </p>
           </div>
         </div>
 
         {/* Homework Section */}
         <div className="mt-40">
           <div className="w-full bg-white rounded-lg p-6 shadow-xl transform hover:scale-105 transition-all ease-in-out duration-300">
-            <h2 className="text-pink-500 text-center text-2xl font-bold">Week 1 Language Homework</h2>
-            <p className="text-blue-300 text-center">Get your parents to help you...</p>
-            <p className="text-blue-300 text-center">Due: 02/01/2025, 5PM</p>
+            <h2 className="text-pink-500 text-center text-2xl font-bold">
+              Week 1 Language Homework
+            </h2>
+            <p className="text-blue-300 text-center">
+              Get your parents to help you...
+            </p>
+            <p className="text-blue-300 text-center">
+              Due: 02/01/2025, 5PM
+            </p>
             <button
               onClick={handleHomeworkSubmit}
               className={`text-center mt-4 px-6 py-3 rounded-lg text-white ${isSubmitted ? 'bg-green-400' : 'bg-orange-400'} transition-all ease-in-out duration-300 transform hover:scale-105`}

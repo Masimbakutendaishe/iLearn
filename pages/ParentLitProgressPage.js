@@ -5,12 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
 import { FaSearch, FaBook, FaLanguage, FaAccessibleIcon, FaSignOutAlt, FaBell, FaReceipt, FaChartLine } from "react-icons/fa";
-import {
-    IoPerson,
-    IoBook,
-    IoSchool,
-    IoMegaphone,
-  } from "react-icons/io5"; // Ionicons for web (react-icons)
+import { IoPerson, IoBook, IoSchool, IoMegaphone } from "react-icons/io5";
 
 const ParentLitProgressPage = () => {
   const router = useRouter();
@@ -31,89 +26,63 @@ const ParentLitProgressPage = () => {
 
   return (
     <div className="min-h-screen bg-[#f8fafc] text-gray-800 font-sans">
+      
       {/* Header */}
-     <div className="bg-indigo-700 mt-35 text-white p-4 rounded-xl flex items-center justify-between">
-      {/* Back Button */}
-      <button onClick={() => router.back()}>
-        <Image src="/pointer.png" alt="Back" width={24} height={24} />
-      </button>
-
-      {/* Search Bar / Icon */}
-      {isSearchBarVisible ? (
-        <input
-          className="flex-1 mx-4 px-2 py-1 rounded text-black"
-          autoFocus
-          placeholder="Type to search..."
-          onBlur={() => setSearchBarVisible(false)}
-        />
-      ) : (
-        <button onClick={() => setSearchBarVisible(true)} className="mx-4">
-          <FaSearch size={20} />
+      <div className="bg-indigo-700 mt-35 text-white p-4 rounded-xl flex items-center justify-between">
+        {/* Back Button */}
+        <button onClick={() => router.back()}>
+          <Image src="/pointer.png" alt="Back" width={24} height={24} />
         </button>
-      )}
 
-      {/* Icon Navigation */}
-      <div className="flex justify-evenly items-center flex-1 gap-3">
-        {[
-          {
-            icon: <IoPerson size={24} />,
-            label: "Profile",
-            route: "/ParentPage",
-          },
-          {
-            icon: <IoBook size={24} />,
-            label: "Subjects",
-            route: "/ParentsSubjectsPage",
-          },
-          {
-            icon: <FaChartLine size={24} />,
-            label: "Progress",
-            route: "/ProgressTrackerPage",
-          },
-          {
-            icon: <IoMegaphone size={24} />,
-            label: "Announcements",
-            route: "/Announcements",
-          },
-          {
-            icon: <FaReceipt size={20} />,
-            label: "Reports",
-            route: "/parent-subject-progress",
-          },
-        ].map((item, index) => (
-          <button
-            key={index}
-            onClick={() => router.push(item.route)}
-            className="group flex flex-col items-center text-white hover:text-orange-400 transition"
-          >
-            {item.icon}
-            <span className="text-xs mt-1">{item.label}</span>
+        {/* Search Bar / Icon */}
+        {isSearchBarVisible ? (
+          <input
+            className="flex-1 mx-4 px-2 py-1 rounded text-black"
+            autoFocus
+            placeholder="Type to search..."
+            onBlur={() => setSearchBarVisible(false)}
+          />
+        ) : (
+          <button onClick={() => setSearchBarVisible(true)} className="mx-4">
+            <FaSearch size={20} />
           </button>
-        ))}
+        )}
 
-        {/* Static Icons */}
-        <button className="hover:text-orange-400 transition">
-          <FaBell size={20} />
-        </button>
+        {/* Icon Navigation */}
+        <div className="flex justify-evenly items-center flex-1 gap-3">
+          {[
+            { icon: <IoPerson size={24} />, label: "Profile", route: "/ParentPage" },
+            { icon: <IoBook size={24} />, label: "Subjects", route: "/ParentsSubjectsPage" },
+            { icon: <FaChartLine size={24} />, label: "Progress", route: "/ProgressTrackerPage" },
+            { icon: <IoMegaphone size={24} />, label: "Announcements", route: "/Announcements" },
+            { icon: <FaReceipt size={20} />, label: "Reports", route: "/parent-subject-progress" },
+          ].map((item, index) => (
+            <button
+              key={index}
+              onClick={() => router.push(item.route)}
+              className="group flex flex-col items-center text-white hover:text-orange-400 transition"
+            >
+              {item.icon}
+              <span className="text-xs mt-1">{item.label}</span>
+            </button>
+          ))}
 
-        <button className="hover:text-orange-400 transition">
-          <FaSignOutAlt size={20} />
-        </button>
+          {/* Static Icons */}
+          <button className="hover:text-orange-400 transition">
+            <FaBell size={20} />
+          </button>
+          <button className="hover:text-orange-400 transition">
+            <FaSignOutAlt size={20} />
+          </button>
 
-        <Image
-          src="/dad.png"
-          alt="Profile"
-          width={32}
-          height={32}
-          className="rounded-full"
-        />
+          <Image src="/dad.png" alt="Profile" width={32} height={32} className="rounded-full" />
+        </div>
       </div>
-    </div>
 
       {/* Title */}
       <div className="text-center p-6">
         <h1 className="text-2xl font-bold text-indigo-800">Literature Progress Overview</h1>
-        <p className="text-gray-600">Track your child's weekly activities and assignments in Literature.</p>
+        <p className="text-gray-600">Track your child&apos;s weekly activities and assignments in Literature.</p>
       </div>
 
       {/* Weeks */}
@@ -123,7 +92,6 @@ const ParentLitProgressPage = () => {
             <button
               onClick={() => setExpandedWeek(expandedWeek === week ? null : week)}
               className="w-full p-3 bg-indigo-100 text-indigo-800 font-semibold hover:bg-indigo-200 transition text-left"
-
             >
               {week} {expandedWeek === week ? '🔼' : '🔽'}
             </button>

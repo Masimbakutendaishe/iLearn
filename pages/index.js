@@ -11,7 +11,7 @@ export default function Home() {
           Welcome To <br></br>
           <span className="text-orange-400">iLEARN ACADEMY</span>
         </h3>
-        <p className="text-purple-500">"iYanda iMfundo"</p>
+        <p className="text-purple-500">iYanda iMfundo</p>
         <p className="mt-4 text-lg text-gray-500">
         iLEARN ACADEMY is a future-driven preschool in South Africa, dedicated to providing an engaging, nurturing, and innovative learning environment. We offer a structured Grade R CAPS program, fostering a love for learning from an early age.
         </p>
