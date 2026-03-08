@@ -76,7 +76,7 @@ const StudentProfilePage = () => {
 
       {/* Homework Section */}
       <div className="bg-white text-center p-4 mt-6 rounded-lg shadow-md">
-        <h2 className="text-xl font-semibold">Today's Homework</h2>
+        <h2 className="text-xl font-semibold">Todays Homework</h2>
         <div className="flex space-x-4 overflow-x-auto p-2">
           {[
             { subject: 'Literature', icon: IoBook, color: 'text-yellow-500' },
