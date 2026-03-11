@@ -2,27 +2,9 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
-import { initializeApp } from 'firebase/app';
-import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
-import { getFirestore, doc, setDoc } from 'firebase/firestore';
 import Image from 'next/image';
 import Link from 'next/link';
 import { IoArrowBack } from 'react-icons/io5';
-
-// ✅ Firebase Configuration (can be reused from a separate file if needed)
-const firebaseConfig = {
-  apiKey: "AIzaSyCVa10GbxFyIq30cQwdWsHjYxKcMEcZa8c",
-  authDomain: "ilearn3.firebaseapp.com",
-  projectId: "ilearn3",
-  storageBucket: "ilearn3.firebasestorage.app",
-  messagingSenderId: "12005226459",
-  appId: "1:12005226459:web:a246554ad95563789819fe",
-  measurementId: "G-S3E0J7J0LL"
-};
-
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-const db = getFirestore(app);
 
 export default function TeacherSignup() {
   const router = useRouter();
@@ -41,39 +23,54 @@ export default function TeacherSignup() {
       return;
     }
 
-    try {
-      const userCredential = await createUserWithEmailAndPassword(auth, email, password);
-      const user = userCredential.user;
+    // Dummy placeholder user creation
+    const dummyTeacher = {
+      id: 'demo-teacher-id',
+      fullName,
+      email,
+      role,
+      profileImage: '',
+      createdAt: new Date(),
+    };
 
-      await setDoc(doc(db, 'teachers', user.uid), {
-        fullName,
-        email: user.email,
-        role,
-        profileImage: '',
-        createdAt: new Date(),
-      });
+    console.log('Dummy teacher created:', dummyTeacher);
 
-      alert('Signup successful!');
-      router.push('/teacher-dashboard');
-    } catch (err) {
-      setError(err.message);
-    }
+    alert('Signup successful! (Dummy Placeholder)');
+    router.push('/teacher-dashboard');
   };
 
   return (
     <div className="mt-16 flex flex-col items-center bg-gray-50 min-h-screen py-12 px-6">
+
       <button onClick={() => router.back()} className="absolute top-5 left-5 p-2">
         <IoArrowBack className="text-blue-500 text-2xl" />
       </button>
 
-      <Image src="/teacherlog2.png" width={150} height={150} alt="Teacher Login" className="mb-4" />
+      <Image
+        src="/teacherlog2.png"
+        width={150}
+        height={150}
+        alt="Teacher Login"
+        className="mb-4"
+      />
 
-      <h2 className="text-2xl font-bold text-blue-600 text-center mb-2">Teacher Sign Up</h2>
-      <p className="text-center text-gray-600 mb-6">Join iLearn to start inspiring minds! 📚</p>
+      <h2 className="text-2xl font-bold text-blue-600 text-center mb-2">
+        Teacher Sign Up
+      </h2>
 
-      {error && <p className="text-red-500 text-sm text-center mb-2">{error}</p>}
+      <p className="text-center text-gray-600 mb-6">
+        Join iLearn to start inspiring minds! 📚
+      </p>
 
-      <form onSubmit={handleSignUp} className="w-full max-w-md space-y-4 bg-white p-6 rounded-lg shadow-md">
+      {error && (
+        <p className="text-red-500 text-sm text-center mb-2">{error}</p>
+      )}
+
+      <form
+        onSubmit={handleSignUp}
+        className="w-full max-w-md space-y-4 bg-white p-6 rounded-lg shadow-md"
+      >
+
         <div>
           <label className="block text-sm text-gray-700">Full Name:</label>
           <input
@@ -108,7 +105,9 @@ export default function TeacherSignup() {
         </div>
 
         <div>
-          <label className="block text-sm text-gray-700">Role (e.g., Teacher):</label>
+          <label className="block text-sm text-gray-700">
+            Role (e.g., Teacher):
+          </label>
           <input
             type="text"
             placeholder="e.g., Literature Teacher"
@@ -126,8 +125,12 @@ export default function TeacherSignup() {
         </button>
 
         <p className="text-center text-sm text-gray-600 mt-4">
-          Already have an account? <Link href="/TeacherLogin" className="text-blue-600 hover:underline">Log In</Link>
+          Already have an account?{' '}
+          <Link href="/TeacherLogin" className="text-blue-600 hover:underline">
+            Log In
+          </Link>
         </p>
+
       </form>
     </div>
   );
