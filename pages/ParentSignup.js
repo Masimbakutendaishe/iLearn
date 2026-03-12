@@ -31,13 +31,12 @@ export default function ParentSignup() {
     <div className="mt-30 flex flex-col items-center justify-center min-h-screen bg-gray-100 p-6">
       <Image src="/parents.png" width={200} height={200} alt="Parents" className="mb-5" />
 
-      <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-md">
-        <h2 className="text-2xl font-bold text-center text-blue-600 mb-4">
-          Parent Sign Up
-        </h2>
 
+
+      <div className="bg-white shadow-lg rounded-xl p-6 w-full max-w-md">
+        <h2 className="text-2xl font-bold text-center text-blue-600 mb-4">Parent Sign Up</h2>
         <p className="text-center text-gray-600 mb-4">
-          Join iLearn and support your child&apos;s education!
+          Join iLearn and support your childs education!
         </p>
 
         <form onSubmit={handleSignUp} className="space-y-4">

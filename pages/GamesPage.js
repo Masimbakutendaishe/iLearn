@@ -71,7 +71,9 @@ const GamesPage = () => {
 
       {/* Navbar Text */}
       <div className="text-center mt-4 mb-4">
+
         <p className="text-sm text-blue-600">Lets play some</p>
+
         <h1 className="text-3xl font-bold text-blue-600">GAMES</h1>
       </div>
 
