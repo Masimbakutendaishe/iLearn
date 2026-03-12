@@ -1,14 +1,9 @@
-@import "tailwindcss";
-
-
-
-@import "tailwindcss/preflight"
-@tailwind utilities;
 @tailwind base;
 @tailwind components;
+@tailwind utilities;
 
+/* Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;300;400;500;600&display=swap');
-
 
 :root {
   --background: #ffffff;
@@ -16,15 +11,12 @@
   font-family: 'Poppins', sans-serif;
 }
 
-  
-
-@theme inline {
+:root {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
+/* Dark mode */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -32,75 +24,78 @@
   }
 }
 
+/* Body */
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'Poppins', Arial, Helvetica, sans-serif;
 }
-/* styles/globals.css */
+
+/* Button component */
 @layer components {
   .btn {
     @apply bg-orange-500 text-white px-6 py-3 rounded-md hover:bg-orange-600;
   }
 }
 
-/* media query */
+/* Responsive Design */
 
-@media (max-width:991px){
+@media (max-width: 991px) {
 
-  html{
+  html {
     font-size: 55%;
   }
 
-  .header{
+  .header {
     padding: 2rem 3rem;
   }
 
-  section{
+  section {
     padding: 3rem;
   }
 
 }
 
-@media (max-width:768px){
+@media (max-width: 768px) {
 
-  #menu-btn{
+  #menu-btn {
     display: inline-block;
   }
 
-  .header .navbar{
+  .header .navbar {
     position: absolute;
-    top: 110%; right: -110%;
+    top: 110%;
+    right: -110%;
     width: 30rem;
-    box-shadow: var(--box-shadow);
     border-radius: .5rem;
-    background: var(--white);
+    background: white;
   }
 
-  .header .navbar.active{
+  .header .navbar.active {
     right: 2rem;
     transition: .4s linear;
   }
 
-  .header .navbar a{
+  .header .navbar a {
     font-size: 2rem;
     margin: 2rem 2.5rem;
     display: block;
   }
 
-  .home .content h3{
+  .home .content h3 {
     font-size: 4.5rem;
   }
 
 }
 
-@media (max-width:450px){
-  html{
+@media (max-width: 450px) {
+
+  html {
     font-size: 65%;
   }
-  .home .content h3{
+
+  .home .content h3 {
     font-size: 4.5rem;
   }
+
 }
-
-
