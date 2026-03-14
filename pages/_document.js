@@ -1,20 +1,30 @@
-// pages/_document.js
-
-import Document, { Html, Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from "next/document";
 
 class MyDocument extends Document {
   render() {
     return (
       <Html lang="en">
         <Head>
-          {/* Preconnect and link to Google Fonts */}
+
+          {/* 🔹 Page Title */}
+          <title>iLearn Academy</title>
+
+          {/* 🔹 Favicon (Tab Icon) */}
+          <link rel="icon" href="/loggo.png" />
+
+          {/* Optional: Better support for different devices */}
+          <link rel="apple-touch-icon" href="/loggo.png" />
+
+          {/* Google Fonts */}
           <link rel="preconnect" href="https://fonts.googleapis.com" />
-          <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+          <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="true" />
           <link
             href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
             rel="stylesheet"
           />
+
         </Head>
+
         <body>
           <Main />
           <NextScript />
