@@ -1,29 +1,28 @@
 import Image from "next/image";
-import { Geist } from "next/font/google";
+import { Nunito } from "next/font/google";
 
-const geist = Geist({
+const nunito = Nunito({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  weight: ["400", "600", "700", "800"],
 });
 
 export default function Home() {
   return (
-    <div className={geist.className}>
+    <div className={nunito.className}>
 
       <style jsx>{`
-        /* 🌈 Soft Pastel Rainbow Flicker */
-@keyframes rainbowFlicker {
-  0% { color: #f4a6b8; }   /* soft pink */
-  16% { color: #f7c59f; }  /* soft peach */
-  33% { color: #f9e79f; }  /* soft yellow */
-  50% { color: #a8e6a3; }  /* soft green */
-  66% { color: #a3c9f9; }  /* soft blue */
-  83% { color: #c3a6e8; }  /* soft purple */
-  100% { color: #f4a6b8; } /* back to pink */
-}
 
-        .rainbow-text {
-          animation: rainbowFlicker 3s infinite;
+        /* 🌈 Welcome Text Flicker */
+        @keyframes welcomeFlicker {
+          0% { color: #22c55e; }   /* green */
+          25% { color: #facc15; }  /* yellow */
+          50% { color: #f97316; }  /* orange */
+          75% { color: #000000; }  /* black */
+          100% { color: #22c55e; }
+        }
+
+        .welcome-flicker {
+          animation: welcomeFlicker 3s infinite;
         }
 
         /* 🫧 Image Breathing */
@@ -36,98 +35,108 @@ export default function Home() {
           animation: breathe 4s ease-in-out infinite;
         }
 
-        /* 🎭 3D Shadow Text */
+        /* 🎭 3D Text Shadow */
         .text-3d {
           text-shadow:
             2px 2px 0 #000,
-            4px 4px 0 rgba(0,0,0,0.3);
+            4px 4px 0 rgba(0,0,0,0.5),
+            6px 6px 12px rgba(0,0,0,0.4);
         }
 
-        /* 🔘 Button 3D Effect */
+        /* Apply 3D shadows to headings and text */
+        h1, h2, h3, p {
+          text-shadow:
+            2px 2px 0 #000,
+            3px 3px 8px rgba(0,0,0,0.5);
+        }
+
+        /* Remove text shadow from buttons */
+        a {
+          text-shadow: none;
+        }
+
+        /* 🔘 Button 3D Press Effect */
         .btn-3d {
-          box-shadow: 0 6px 0 pink;
+          box-shadow: 0 6px 0 #c2410c;
           transition: all 0.2s ease;
-          
         }
 
         .btn-3d:hover {
-          background: white;
-          color: orange;
-          box-shadow: 0 2px 0 orange;
+          background: #facc15;
+          color: black;
+          box-shadow: 0 2px 0 #c2410c;
           transform: translateY(4px);
         }
+
+        /* 🎨 ABOUT BACKGROUND COLOR ANIMATION */
+        @keyframes aboutColors {
+          0% { background-color: #22c55e; }
+          50% { background-color: #facc15; }
+          100% { background-color: #f97316; }
+        }
+
+        .about-bg {
+          animation: aboutColors 8s infinite alternate;
+        }
+
       `}</style>
 
       {/* HERO SECTION */}
       <section
-        className="relative flex flex-wrap items-center min-h-screen gap-6 p-6"
+        className="relative flex items-center justify-center min-h-screen text-center p-6"
         id="home"
+        style={{
+          backgroundImage: "url('/ilearnmain.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+        }}
       >
-        <div className="flex-1">
 
-          <h3 className="text-6xl font-bold rainbow-text text-3d leading-tight">
+        {/* DARK OVERLAY */}
+        <div className="absolute inset-0 bg-black/60"></div>
+
+        <div className="relative z-10 max-w-3xl">
+
+          <h1 className="text-6xl font-extrabold welcome-flicker text-3d leading-tight">
             Welcome To <br />
-            <span className="rainbow-text text-3d">
+            <span className="welcome-flicker">
               iLEARN ACADEMY
             </span>
-          </h3>
+          </h1>
 
-          <p className="text-gray-500 font-semibold">
+          <p className="text-white font-semibold mt-4 text-xl">
             iYanda iMfundo
           </p>
 
-          <p className="mt-4 text-lg text-gray-500">
+          <p className="mt-6 text-lg text-gray-200">
             iLEARN ACADEMY is a future-driven preschool in South Africa,
-            dedicated to providing an engaging, nurturing, and innovative learning environment.
+            dedicated to providing an engaging, nurturing, and innovative
+            learning environment for young minds.
           </p>
 
           {/* BUTTON */}
           <a
-            href="#"
-            className="inline-block px-6 py-3 mt-6 text-pink bg-white rounded-lg btn-3d font-semibold"
+            href="#about"
+            className="inline-block px-8 py-3 mt-8 text-black bg-orange-500 rounded-lg btn-3d font-bold"
           >
             Learn More
           </a>
 
         </div>
 
-        {/* IMAGE */}
-        <div className="flex-1 flex justify-center">
-          <Image
-            src="/home.png"
-            alt="Kindergarten Image"
-            width={500}
-            height={500}
-            className="breathe"
-          />
-        </div>
-
-        {/* WAVE */}
-        <div className="absolute bottom-0 left-0 w-full overflow-hidden leading-none">
-          <svg
-            viewBox="0 0 1200 120"
-            preserveAspectRatio="none"
-            className="relative block w-full h-[107px]"
-          >
-            <path
-              d="M985.66,92.83C906.67,72,823.78,31,743.84,14.19c-82.26-17.34-168.06-16.33-250.45.39-57.84,11.73-114,31.07-172,41.86A600.21,600.21,0,0,1,0,27.35V120H1200V95.8C1132.19,118.92,1055.71,111.31,985.66,92.83Z"
-              fill="#f78da7"
-            />
-          </svg>
-        </div>
       </section>
 
       {/* ABOUT SECTION */}
       <section
-        className="about"
-        style={{ backgroundColor: "#f78da7" }}
+        className="py-20 px-6 about-bg"
         id="about"
       >
-        <h1 className="text-5xl font-bold text-center text-white mb-12 text-3d">
-          <span className="text-orange-400">About</span> Us
+
+        <h1 className="text-5xl font-extrabold text-center text-white mb-12 text-3d">
+          About Us
         </h1>
 
-        <div className="flex flex-wrap items-center gap-6">
+        <div className="flex flex-wrap items-center gap-10 max-w-6xl mx-auto">
 
           <div className="flex-1 flex justify-center">
             <Image
@@ -140,22 +149,26 @@ export default function Home() {
           </div>
 
           <div className="flex-1">
+
             <h3 className="text-3xl text-white leading-snug text-3d">
               Exploring, Growing, And Thriving Together
             </h3>
 
             <p className="text-lg text-white mt-4 leading-relaxed">
-              At iLEARN ACADEMY, we believe in holistic development.
+              At iLEARN ACADEMY, we believe in holistic development and
+              nurturing every child’s curiosity and creativity.
             </p>
 
             <p className="text-lg text-white mt-4 leading-relaxed">
-              We provide nutritious meals and a safe inspiring environment.
+              We provide nutritious meals, caring teachers, and a safe
+              inspiring environment where children can learn, grow,
+              and build confidence.
             </p>
 
             {/* BUTTON */}
             <a
               href="#"
-              className="inline-block px-6 py-3 mt-6 text-white bg-orange-400 rounded-lg btn-3d font-semibold"
+              className="inline-block px-6 py-3 mt-6 text-black bg-yellow-400 rounded-lg font-bold btn-3d"
             >
               Read More
             </a>
@@ -163,6 +176,7 @@ export default function Home() {
           </div>
 
         </div>
+
       </section>
 
     </div>
