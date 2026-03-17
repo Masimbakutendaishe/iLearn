@@ -55,8 +55,7 @@ const Navbar = () => {
 
           {[
             { name: 'ABOUT US', color: 'text-orange-500', link: '/About' },
-            { name: 'EDUCATION', color: 'text-yellow-500', link: '/Education' },
-            { name: 'TEACHERS', color: 'text-green-500', link: '/Teacher' },
+            { name: 'THE TEAM', color: 'text-green-500', link: '/Teacher' },
             { name: 'ACTIVITIES', color: 'text-orange-400', link: '/Activities' },
             { name: 'GALLERY', color: 'text-yellow-400', link: '/Gallery' },
             { name: 'CONTACT', color: 'text-green-600', link: '/Contact' }
