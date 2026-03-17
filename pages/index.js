@@ -19,37 +19,67 @@ export default function Home() {
         /* 🌈 COLOR FLOW */
         @keyframes colorFlow {
           0% { color: #22c55e; }
-          25% { color: #facc15; }
-          50% { color: #f97316; }
-          75% { color: #000000; }
+          33% { color: #facc15; }
+          66% { color: #f97316; }
           100% { color: #22c55e; }
         }
 
-        /* 🎉 WAVE BOUNCE */
-        @keyframes waveBounce {
-          0% { transform: translateY(0) scale(1); }
-          25% { transform: translateY(-12px) scale(1.2) rotate(6deg); }
-          50% { transform: translateY(0) scale(1.1); }
-          75% { transform: translateY(-6px) scale(1.15) rotate(-4deg); }
-          100% { transform: translateY(0) scale(1); }
-        }
-
-        /* ✨ FLOATING (AUTO FUN) */
+        /* 🎈 FLOATING */
         @keyframes floatText {
           0%,100% { transform: translateY(0); }
           50% { transform: translateY(-6px); }
         }
 
-        .fun-letter {
-          display: inline-block;
-          animation: colorFlow 4s infinite, floatText 3s ease-in-out infinite;
-          text-shadow:
-            2px 2px 0 #000,
-            4px 4px 10px rgba(0,0,0,0.6);
+        /* ✨ GLOW PULSE */
+        @keyframes glowPulse {
+          0%,100% {
+            text-shadow:
+              0 0 6px #22c55e,
+              0 0 12px #22c55e,
+              2px 2px 0 #000;
+          }
+          50% {
+            text-shadow:
+              0 0 12px #facc15,
+              0 0 20px #f97316,
+              2px 2px 0 #000;
+          }
         }
 
-        .fun-group:hover .fun-letter {
-          animation: waveBounce 0.6s ease forwards;
+        /* 🌟 TRAIL EFFECT */
+        @keyframes trail {
+          0% {
+            text-shadow:
+              2px 2px 0 #000,
+              6px 6px 12px rgba(0,0,0,0.4),
+              0 0 0 rgba(255,255,255,0);
+          }
+          50% {
+            text-shadow:
+              2px 2px 0 #000,
+              10px 10px 18px rgba(0,0,0,0.5),
+              0 0 18px rgba(255,255,255,0.8);
+          }
+          100% {
+            text-shadow:
+              2px 2px 0 #000,
+              6px 6px 12px rgba(0,0,0,0.4),
+              0 0 0 rgba(255,255,255,0);
+          }
+        }
+
+        /* 🚀 FINAL LETTER STYLE */
+        .fun-letter {
+          display: inline-block;
+
+          animation:
+            colorFlow 2s linear infinite,
+            floatText 2.5s ease-in-out infinite,
+            glowPulse 2s ease-in-out infinite,
+            trail 2.5s ease-in-out infinite;
+
+          filter: drop-shadow(0 0 6px rgba(255,255,255,0.4));
+          will-change: transform, text-shadow;
         }
 
         /* 🫧 Image Breathing */
@@ -93,6 +123,7 @@ export default function Home() {
           transform: translateY(4px);
         }
 
+        /* 🌈 ABOUT BG */
         @keyframes aboutColors {
           0% { background: linear-gradient(135deg, #bbf7d0, #4ade80); }
           50% { background: linear-gradient(135deg, #fef3c7, #fcd34d); }
@@ -125,18 +156,17 @@ export default function Home() {
 
         <div className="absolute inset-0 bg-black/60"></div>
 
-        <div className="relative z-10 max-w-3xl fun-group">
+        <div className="relative z-10 max-w-3xl">
 
-          {/* 🎉 SUPER FUN TEXT */}
           <h1 className="text-6xl font-extrabold leading-tight">
 
             {welcomeText.split('').map((letter, i) => (
               <span
                 key={i}
                 className="fun-letter"
-                style={{ animationDelay: `${i * 0.1}s` }}
+                style={{ animationDelay: `${i * 0.05}s` }}
               >
-                {letter}
+                {letter === " " ? "\u00A0" : letter}
               </span>
             ))}
 
@@ -146,9 +176,9 @@ export default function Home() {
               <span
                 key={i}
                 className="fun-letter"
-                style={{ animationDelay: `${i * 0.1 + 0.5}s` }}
+                style={{ animationDelay: `${i * 0.05}s` }}
               >
-                {letter}
+                {letter === " " ? "\u00A0" : letter}
               </span>
             ))}
 
@@ -174,9 +204,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ABOUT SECTION (UNCHANGED) */}
+      {/* ABOUT SECTION */}
       <section className="py-20 px-6 about-bg" id="about">
-
         <h1 className="text-5xl font-extrabold text-center text-white mb-12 text-3d">
           About Us
         </h1>
