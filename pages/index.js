@@ -141,15 +141,64 @@ export default function Home() {
           background-repeat: no-repeat;
         }
 
-        @media (max-width: 768px) {
-          .hero-section {
-            background-size: contain;
-            background-position: top center;
-            background-color: black;
-          }
-        }
+       /* 📱 MOBILE EXPERIENCE */
+@media (max-width: 768px) {
 
-      `}</style>
+  .hero-section {
+    padding: 2rem 1rem;
+    text-align: center;
+  }
+
+  h1 {
+    line-height: 1.2;
+    letter-spacing: 1px;
+  }
+
+  p {
+    font-size: 0.95rem;
+  }
+
+  .btn-3d {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  /* 🎯 CENTER EVERYTHING */
+  .hero-section .relative {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  /* 🧊 ABOUT CARD STYLE */
+  .about-bg {
+    padding: 3rem 1.2rem;
+  }
+
+  .about-bg .flex {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-bg img {
+    max-width: 260px;
+  }
+
+  .about-bg .flex-1:last-child {
+    background: rgba(0,0,0,0.4);
+    padding: 1.5rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    margin-top: 1rem;
+  }
+
+}
+
+      `}
+
+      
+      
+      </style>
 
       {/* HERO SECTION */}
       <section className="hero-section relative flex items-center justify-center min-h-screen text-center p-6">
@@ -158,16 +207,16 @@ export default function Home() {
 
         <div className="relative z-10 max-w-3xl">
 
-          <h1 className="text-6xl font-extrabold leading-tight">
+        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
 
             {welcomeText.split('').map((letter, i) => (
-              <span
-                key={i}
-                className="fun-letter"
-                style={{ animationDelay: `${i * 0.05}s` }}
-              >
-                {letter === " " ? "\u00A0" : letter}
-              </span>
+             <span
+             key={i}
+             className="fun-letter active:scale-125 transition-transform duration-150"
+             style={{ animationDelay: `${i * 0.05}s` }}
+           >
+             {letter === " " ? "\u00A0" : letter}
+           </span>
             ))}
 
             <br />
