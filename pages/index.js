@@ -68,16 +68,21 @@ export default function Home() {
           transform: translateY(4px);
         }
 
-        /* 🎨 ABOUT BACKGROUND COLOR ANIMATION */
-        @keyframes aboutColors {
-          0% { background-color: #22c55e; }
-          50% { background-color: #facc15; }
-          100% { background-color: #f97316; }
-        }
+    @keyframes aboutColors {
+  0% {
+    background: linear-gradient(135deg, #bbf7d0, #4ade80);
+  }
+  50% {
+    background: linear-gradient(135deg, #fef3c7, #fcd34d);
+  }
+  100% {
+    background: linear-gradient(135deg, #fed7aa, #fb923c);
+  }
+}
 
-        .about-bg {
-          animation: aboutColors 8s infinite alternate;
-        }
+.about-bg {
+  animation: aboutColors 14s ease-in-out infinite alternate;
+}
 
         /* 🌄 HERO BACKGROUND (DESKTOP DEFAULT) */
         .hero-section {
@@ -129,7 +134,7 @@ export default function Home() {
           {/* BUTTON */}
           <a
             href="#about"
-            className="inline-block px-8 py-3 mt-8 text-black bg-orange-500 rounded-lg btn-3d font-bold"
+            className="inline-block px-8 py-3 mt-8 text-white bg-orange-500 rounded-lg btn-3d font-bold"
           >
             Learn More
           </a>
