@@ -79,17 +79,29 @@ export default function Home() {
           animation: aboutColors 8s infinite alternate;
         }
 
+        /* 🌄 HERO BACKGROUND (DESKTOP DEFAULT) */
+        .hero-section {
+          background-image: url('/ilearnmain.png');
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+        }
+
+        /* 📱 MOBILE FIX */
+        @media (max-width: 768px) {
+          .hero-section {
+            background-size: contain;
+            background-position: top center;
+            background-color: black;
+          }
+        }
+
       `}</style>
 
       {/* HERO SECTION */}
       <section
-        className="relative flex items-center justify-center min-h-screen text-center p-6"
+        className="hero-section relative flex items-center justify-center min-h-screen text-center p-6"
         id="home"
-        style={{
-          backgroundImage: "url('/ilearnmain.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-        }}
       >
 
         {/* DARK OVERLAY */}
