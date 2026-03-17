@@ -7,22 +7,49 @@ const nunito = Nunito({
 });
 
 export default function Home() {
+
+  const welcomeText = "WELCOME TO";
+  const academyText = "iLEARN ACADEMY";
+
   return (
     <div className={nunito.className}>
 
       <style jsx>{`
 
-        /* 🌈 Welcome Text Flicker */
-        @keyframes welcomeFlicker {
-          0% { color: #22c55e; }   /* green */
-          25% { color: #facc15; }  /* yellow */
-          50% { color: #f97316; }  /* orange */
-          75% { color: #000000; }  /* black */
+        /* 🌈 COLOR FLOW */
+        @keyframes colorFlow {
+          0% { color: #22c55e; }
+          25% { color: #facc15; }
+          50% { color: #f97316; }
+          75% { color: #000000; }
           100% { color: #22c55e; }
         }
 
-        .welcome-flicker {
-          animation: welcomeFlicker 3s infinite;
+        /* 🎉 WAVE BOUNCE */
+        @keyframes waveBounce {
+          0% { transform: translateY(0) scale(1); }
+          25% { transform: translateY(-12px) scale(1.2) rotate(6deg); }
+          50% { transform: translateY(0) scale(1.1); }
+          75% { transform: translateY(-6px) scale(1.15) rotate(-4deg); }
+          100% { transform: translateY(0) scale(1); }
+        }
+
+        /* ✨ FLOATING (AUTO FUN) */
+        @keyframes floatText {
+          0%,100% { transform: translateY(0); }
+          50% { transform: translateY(-6px); }
+        }
+
+        .fun-letter {
+          display: inline-block;
+          animation: colorFlow 4s infinite, floatText 3s ease-in-out infinite;
+          text-shadow:
+            2px 2px 0 #000,
+            4px 4px 10px rgba(0,0,0,0.6);
+        }
+
+        .fun-group:hover .fun-letter {
+          animation: waveBounce 0.6s ease forwards;
         }
 
         /* 🫧 Image Breathing */
@@ -35,7 +62,7 @@ export default function Home() {
           animation: breathe 4s ease-in-out infinite;
         }
 
-        /* 🎭 3D Text Shadow */
+        /* 🎭 3D TEXT */
         .text-3d {
           text-shadow:
             2px 2px 0 #000,
@@ -43,19 +70,17 @@ export default function Home() {
             6px 6px 12px rgba(0,0,0,0.4);
         }
 
-        /* Apply 3D shadows to headings and text */
-        h1, h2, h3, p {
+        h2, h3, p {
           text-shadow:
             2px 2px 0 #000,
             3px 3px 8px rgba(0,0,0,0.5);
         }
 
-        /* Remove text shadow from buttons */
         a {
           text-shadow: none;
         }
 
-        /* 🔘 Button 3D Press Effect */
+        /* 🔘 BUTTON */
         .btn-3d {
           box-shadow: 0 6px 0 #c2410c;
           transition: all 0.2s ease;
@@ -68,23 +93,16 @@ export default function Home() {
           transform: translateY(4px);
         }
 
-    @keyframes aboutColors {
-  0% {
-    background: linear-gradient(135deg, #bbf7d0, #4ade80);
-  }
-  50% {
-    background: linear-gradient(135deg, #fef3c7, #fcd34d);
-  }
-  100% {
-    background: linear-gradient(135deg, #fed7aa, #fb923c);
-  }
-}
+        @keyframes aboutColors {
+          0% { background: linear-gradient(135deg, #bbf7d0, #4ade80); }
+          50% { background: linear-gradient(135deg, #fef3c7, #fcd34d); }
+          100% { background: linear-gradient(135deg, #fed7aa, #fb923c); }
+        }
 
-.about-bg {
-  animation: aboutColors 14s ease-in-out infinite alternate;
-}
+        .about-bg {
+          animation: aboutColors 14s ease-in-out infinite alternate;
+        }
 
-        /* 🌄 HERO BACKGROUND (DESKTOP DEFAULT) */
         .hero-section {
           background-image: url('/ilearnmain.png');
           background-size: cover;
@@ -92,7 +110,6 @@ export default function Home() {
           background-repeat: no-repeat;
         }
 
-        /* 📱 MOBILE FIX */
         @media (max-width: 768px) {
           .hero-section {
             background-size: contain;
@@ -104,21 +121,37 @@ export default function Home() {
       `}</style>
 
       {/* HERO SECTION */}
-      <section
-        className="hero-section relative flex items-center justify-center min-h-screen text-center p-6"
-        id="home"
-      >
+      <section className="hero-section relative flex items-center justify-center min-h-screen text-center p-6">
 
-        {/* DARK OVERLAY */}
         <div className="absolute inset-0 bg-black/60"></div>
 
-        <div className="relative z-10 max-w-3xl">
+        <div className="relative z-10 max-w-3xl fun-group">
 
-          <h1 className="text-6xl font-extrabold welcome-flicker text-3d leading-tight">
-            Welcome To <br />
-            <span className="welcome-flicker">
-              iLEARN ACADEMY
-            </span>
+          {/* 🎉 SUPER FUN TEXT */}
+          <h1 className="text-6xl font-extrabold leading-tight">
+
+            {welcomeText.split('').map((letter, i) => (
+              <span
+                key={i}
+                className="fun-letter"
+                style={{ animationDelay: `${i * 0.1}s` }}
+              >
+                {letter}
+              </span>
+            ))}
+
+            <br />
+
+            {academyText.split('').map((letter, i) => (
+              <span
+                key={i}
+                className="fun-letter"
+                style={{ animationDelay: `${i * 0.1 + 0.5}s` }}
+              >
+                {letter}
+              </span>
+            ))}
+
           </h1>
 
           <p className="text-white font-semibold mt-4 text-xl">
@@ -131,7 +164,6 @@ export default function Home() {
             learning environment for young minds.
           </p>
 
-          {/* BUTTON */}
           <a
             href="#about"
             className="inline-block px-8 py-3 mt-8 text-white bg-orange-500 rounded-lg btn-3d font-bold"
@@ -140,14 +172,10 @@ export default function Home() {
           </a>
 
         </div>
-
       </section>
 
-      {/* ABOUT SECTION */}
-      <section
-        className="py-20 px-6 about-bg"
-        id="about"
-      >
+      {/* ABOUT SECTION (UNCHANGED) */}
+      <section className="py-20 px-6 about-bg" id="about">
 
         <h1 className="text-5xl font-extrabold text-center text-white mb-12 text-3d">
           About Us
@@ -182,7 +210,6 @@ export default function Home() {
               and build confidence.
             </p>
 
-            {/* BUTTON */}
             <a
               href="#"
               className="inline-block px-6 py-3 mt-6 text-black bg-yellow-400 rounded-lg font-bold btn-3d"
