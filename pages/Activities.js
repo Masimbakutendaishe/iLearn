@@ -2,14 +2,14 @@ import Image from 'next/image';
 
 export default function Activities() {
   const activities = [
-    { id: 1, image: '/activities1.png', title: 'Robotics & Coding' },
-    { id: 2, image: '/activities2.png', title: 'Technology Exploration' },
-    { id: 3, image: '/activities3.png', title: 'Creative Arts & Crafts' },
-    { id: 4, image: '/activities4.png', title: 'Numeracy Development' },
-    { id: 5, image: '/activities5.png', title: 'Literacy & Language' },
-    { id: 6, image: '/activities6.png', title: 'Educational Games' },
-    { id: 7, image: '/activities7.png', title: 'Dramatic Arts & Eisteddfod' },
-    { id: 8, image: '/activities8.png', title: 'Sports Education' },
+    { id: 1, image: '/activities_1.JPG', title: 'Robotics & Coding' },
+    { id: 2, image: '/activities_2.JPG', title: 'Technology Exploration' },
+    { id: 3, image: '/activities_3.JPG', title: 'Creative Arts & Crafts' },
+    { id: 4, image: '/activities_4.JPG', title: 'Numeracy Development' },
+    { id: 5, image: '/activities_5.JPG', title: 'Literacy & Language' },
+    { id: 6, image: '/activities_6.JPG', title: 'Educational Games' },
+    { id: 7, image: '/activities_7.JPG', title: 'Dramatic Arts & Eisteddfod' },
+    { id: 8, image: '/activities_8.JPG', title: 'Sports Education' },
   ];
 
   return (
