@@ -89,6 +89,32 @@ export default function Home() {
           animation: breathe 4s ease-in-out infinite;
         }
 
+        /* 🎞️ SLIDESHOW */
+        .slideshow {
+          position: relative;
+          width: 500px;
+          height: 500px;
+        }
+
+        .slide {
+          position: absolute;
+          inset: 0;
+          opacity: 0;
+          animation: fadeSlide 12s infinite;
+        }
+
+        .slide:nth-child(1) { animation-delay: 0s; }
+        .slide:nth-child(2) { animation-delay: 4s; }
+        .slide:nth-child(3) { animation-delay: 8s; }
+
+        @keyframes fadeSlide {
+          0% { opacity: 0; }
+          8% { opacity: 1; }
+          30% { opacity: 1; }
+          38% { opacity: 0; }
+          100% { opacity: 0; }
+        }
+
         .text-3d {
           text-shadow:
             2px 2px 0 #000,
@@ -135,14 +161,12 @@ export default function Home() {
           background-repeat: no-repeat;
         }
 
-        /* 🔥 MOBILE BACKGROUND SLIDE */
         @keyframes bgSlide {
           0% { background-position: left center; }
           50% { background-position: right center; }
           100% { background-position: left center; }
         }
 
-        /* 🔥🔥🔥 ENHANCED MOBILE EXPERIENCE 🔥🔥🔥 */
         @media (max-width: 768px) {
 
           .hero-section {
@@ -230,34 +254,20 @@ export default function Home() {
         <div className="relative z-10 max-w-3xl">
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
-
             {welcomeText.split('').map((letter, i) => (
-              <span
-                key={i}
-                className="fun-letter active:scale-125 transition-transform duration-150"
-                style={{ animationDelay: `${i * 0.05}s` }}
-              >
+              <span key={i} className="fun-letter" style={{ animationDelay: `${i * 0.05}s` }}>
                 {letter === " " ? "\u00A0" : letter}
               </span>
             ))}
-
             <br />
-
             {academyText.split('').map((letter, i) => (
-              <span
-                key={i}
-                className="fun-letter"
-                style={{ animationDelay: `${i * 0.05}s` }}
-              >
+              <span key={i} className="fun-letter" style={{ animationDelay: `${i * 0.05}s` }}>
                 {letter === " " ? "\u00A0" : letter}
               </span>
             ))}
-
           </h1>
 
-          <p className="text-white font-semibold mt-4 text-xl">
-            iYanda iMfundo
-          </p>
+          <p className="text-white font-semibold mt-4 text-xl">iYanda iMfundo</p>
 
           <p className="mt-6 text-lg text-gray-200">
             iLEARN ACADEMY is a future-driven preschool in South Africa,
@@ -265,10 +275,7 @@ export default function Home() {
             learning environment for young minds.
           </p>
 
-          <a
-            href="#about"
-            className="inline-block px-8 py-3 mt-8 text-white bg-orange-500 rounded-lg btn-3d font-bold"
-          >
+          <a href="#about" className="inline-block px-8 py-3 mt-8 text-white bg-orange-500 rounded-lg btn-3d font-bold">
             Learn More
           </a>
 
@@ -283,80 +290,40 @@ export default function Home() {
 
         <div className="flex flex-wrap items-center gap-10 max-w-6xl mx-auto">
 
-        <div className="flex-1 flex justify-center relative overflow-hidden">
-
-  <style jsx>{`
-    .slide {
-      position: absolute;
-      opacity: 0;
-      transition: opacity 1.5s ease-in-out;
-    }
-
-    .slide.active {
-      opacity: 1;
-      position: relative;
-    }
-  `}</style>
-
-  {[1, 2, 3].map((num, index) => (
-    <Image
-      key={num}
-      src={`/about_main_${num}.png`}
-      alt={`About ${num}`}
-      width={500}
-      height={500}
-      className={`breathe slide ${index === 0 ? "active" : ""}`}
-      id={`slide-${index}`}
-    />
-  ))}
-
-  <script
-    dangerouslySetInnerHTML={{
-      __html: `
-        let current = 0;
-        const slides = document.querySelectorAll('[id^="slide-"]');
-
-        setInterval(() => {
-          slides[current].classList.remove('active');
-          current = (current + 1) % slides.length;
-          slides[current].classList.add('active');
-        }, 4000);
-      `,
-    }}
-  />
-
-</div>
+          {/* ✅ REPLACED IMAGE WITH SLIDESHOW */}
+          <div className="flex-1 flex justify-center">
+            <div className="slideshow breathe">
+              <div className="slide">
+                <Image src="/about_main_1.png" alt="Slide 1" fill style={{ objectFit: "cover" }} />
+              </div>
+              <div className="slide">
+                <Image src="/about_main_2.png" alt="Slide 2" fill style={{ objectFit: "cover" }} />
+              </div>
+              <div className="slide">
+                <Image src="/about_main_3.png" alt="Slide 3" fill style={{ objectFit: "cover" }} />
+              </div>
+            </div>
+          </div>
 
           <div className="flex-1">
-
             <h3 className="text-3xl text-white leading-snug text-3d">
               Exploring, Growing, And Thriving Together
             </h3>
 
             <p className="text-lg text-white mt-4 leading-relaxed">
-              Our primary school education program is tutor facilitated, allowing a comprehensive 
-              one-on-one approach to a learner's educational needs. With different curriculum 
-              options to choose from, parents can provide a tailored education that prepares 
-              each child to their fullest potential.
+            Our primary school education program is tutor facilitated, allowing a comprehensive one-on-one approach to a learner's educational needs. With different curriculum options to choose from, parents can provide a tailored education that prepares each child to their fullest potential.
             </p>
 
             <p className="text-lg text-white mt-4 leading-relaxed">
-              Social interaction and physical education are also vital for holistic development. 
-              We create opportunities for learners to explore their unique interests in safe, 
-              nurturing environments led by licensed and qualified instructors.
+            Social interaction and physical education are also vital for holistic development. We create opportunities for learners to explore their unique interests in safe, nurturing environments led by licensed and qualified instructors.
             </p>
 
-            <a
-              href="#"
-              className="inline-block px-6 py-3 mt-6 text-black bg-yellow-400 rounded-lg font-bold btn-3d"
-            >
+            <a href="#" className="inline-block px-6 py-3 mt-6 text-black bg-yellow-400 rounded-lg font-bold btn-3d">
               Read More
             </a>
-
           </div>
 
         </div>
-
       </section>
 
     </div>
