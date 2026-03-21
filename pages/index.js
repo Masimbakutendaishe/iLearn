@@ -220,6 +220,38 @@ export default function Home() {
 
         }
 
+        /* 🎞️ ABOUT SLIDESHOW */
+.slideshow {
+  width: 100%;
+  max-width: 500px;
+  overflow: hidden;
+  border-radius: 20px;
+}
+
+.slides {
+  display: flex;
+  width: 300%;
+  animation: slideShow 12s infinite;
+}
+
+.slides :global(img) {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+/* ✨ SMOOTH SLIDE ANIMATION */
+@keyframes slideShow {
+  0% { transform: translateX(0%); }
+  30% { transform: translateX(0%); }
+
+  35% { transform: translateX(-100%); }
+  65% { transform: translateX(-100%); }
+
+  70% { transform: translateX(-200%); }
+  100% { transform: translateX(-200%); }
+}
+
       `}</style>
 
       {/* HERO SECTION */}
@@ -283,15 +315,15 @@ export default function Home() {
 
         <div className="flex flex-wrap items-center gap-10 max-w-6xl mx-auto">
 
-          <div className="flex-1 flex justify-center">
-            <Image
-              src="/about us.png"
-              alt="About Us"
-              width={500}
-              height={500}
-              className="breathe"
-            />
-          </div>
+        <div className="flex-1 flex justify-center">
+  <div className="slideshow">
+    <div className="slides">
+      <Image src="/abt_main_1.png" alt="About 1" width={500} height={500} />
+      <Image src="/about_main_2.png" alt="About 2" width={500} height={500} />
+      <Image src="/about_main_3.png" alt="About 3" width={500} height={500} />
+    </div>
+  </div>
+</div>
 
           <div className="flex-1">
 
