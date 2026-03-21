@@ -60,7 +60,7 @@ const Footer = () => {
             About Us
           </a>
           <a href="#" className="text-lg py-2 block hover:text-orange-400">
-            Academics
+            Awards & Prizegving
           </a>
           <a href="#" className="text-lg py-2 block hover:text-orange-400">
             Admissions
