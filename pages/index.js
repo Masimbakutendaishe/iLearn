@@ -68,10 +68,8 @@ export default function Home() {
           }
         }
 
-        /* 🚀 FINAL LETTER STYLE */
         .fun-letter {
           display: inline-block;
-
           animation:
             colorFlow 2s linear infinite,
             floatText 2.5s ease-in-out infinite,
@@ -82,7 +80,6 @@ export default function Home() {
           will-change: transform, text-shadow;
         }
 
-        /* 🫧 Image Breathing */
         @keyframes breathe {
           0%, 100% { transform: scale(1); }
           50% { transform: scale(1.04); }
@@ -92,7 +89,6 @@ export default function Home() {
           animation: breathe 4s ease-in-out infinite;
         }
 
-        /* 🎭 3D TEXT */
         .text-3d {
           text-shadow:
             2px 2px 0 #000,
@@ -110,7 +106,6 @@ export default function Home() {
           text-shadow: none;
         }
 
-        /* 🔘 BUTTON */
         .btn-3d {
           box-shadow: 0 6px 0 #c2410c;
           transition: all 0.2s ease;
@@ -123,7 +118,6 @@ export default function Home() {
           transform: translateY(4px);
         }
 
-        /* 🌈 ABOUT BG */
         @keyframes aboutColors {
           0% { background: linear-gradient(135deg, #bbf7d0, #4ade80); }
           50% { background: linear-gradient(135deg, #fef3c7, #fcd34d); }
@@ -141,64 +135,92 @@ export default function Home() {
           background-repeat: no-repeat;
         }
 
-       /* 📱 MOBILE EXPERIENCE */
-@media (max-width: 768px) {
+        /* 🔥 MOBILE BACKGROUND SLIDE */
+        @keyframes bgSlide {
+          0% { background-position: left center; }
+          50% { background-position: right center; }
+          100% { background-position: left center; }
+        }
 
-  .hero-section {
-    padding: 2rem 1rem;
-    text-align: center;
-  }
+        /* 🔥🔥🔥 ENHANCED MOBILE EXPERIENCE 🔥🔥🔥 */
+        @media (max-width: 768px) {
 
-  h1 {
-    line-height: 1.2;
-    letter-spacing: 1px;
-  }
+          .hero-section {
+            padding: 3rem 1.2rem;
+            text-align: center;
+            background-size: cover;
+            animation: bgSlide 18s ease-in-out infinite;
+          }
 
-  p {
-    font-size: 0.95rem;
-  }
+          h1 {
+            font-size: 2.5rem !important;
+            line-height: 1.15;
+            letter-spacing: 1.5px;
+          }
 
-  .btn-3d {
-    width: 100%;
-    max-width: 280px;
-  }
+          p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+          }
 
-  /* 🎯 CENTER EVERYTHING */
-  .hero-section .relative {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+          .hero-section p:first-of-type {
+            font-size: 1.3rem;
+            font-weight: 700;
+          }
 
-  /* 🧊 ABOUT CARD STYLE */
-  .about-bg {
-    padding: 3rem 1.2rem;
-  }
+          .btn-3d {
+            width: 100%;
+            max-width: 300px;
+            font-size: 1.05rem;
+            padding: 0.9rem;
+          }
 
-  .about-bg .flex {
-    flex-direction: column;
-    text-align: center;
-  }
+          .hero-section .relative {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.6rem;
+          }
 
-  .about-bg img {
-    max-width: 260px;
-  }
+          .hero-section .relative {
+            background: rgba(0,0,0,0.45);
+            padding: 1.8rem 1.2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
+          }
 
-  .about-bg .flex-1:last-child {
-    background: rgba(0,0,0,0.4);
-    padding: 1.5rem;
-    border-radius: 20px;
-    backdrop-filter: blur(10px);
-    margin-top: 1rem;
-  }
+          .about-bg {
+            padding: 3.5rem 1.3rem;
+          }
 
-}
+          .about-bg h1 {
+            font-size: 2.2rem;
+          }
 
-      `}
+          .about-bg .flex {
+            flex-direction: column;
+            text-align: center;
+            gap: 1.5rem;
+          }
 
-      
-      
-      </style>
+          .about-bg img {
+            max-width: 280px;
+          }
+
+          .about-bg .flex-1:last-child {
+            background: rgba(0,0,0,0.45);
+            padding: 1.6rem;
+            border-radius: 20px;
+            backdrop-filter: blur(12px);
+          }
+
+          .about-bg h3 {
+            font-size: 1.6rem;
+          }
+
+        }
+
+      `}</style>
 
       {/* HERO SECTION */}
       <section className="hero-section relative flex items-center justify-center min-h-screen text-center p-6">
@@ -207,16 +229,16 @@ export default function Home() {
 
         <div className="relative z-10 max-w-3xl">
 
-        <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
 
             {welcomeText.split('').map((letter, i) => (
-             <span
-             key={i}
-             className="fun-letter active:scale-125 transition-transform duration-150"
-             style={{ animationDelay: `${i * 0.05}s` }}
-           >
-             {letter === " " ? "\u00A0" : letter}
-           </span>
+              <span
+                key={i}
+                className="fun-letter active:scale-125 transition-transform duration-150"
+                style={{ animationDelay: `${i * 0.05}s` }}
+              >
+                {letter === " " ? "\u00A0" : letter}
+              </span>
             ))}
 
             <br />
@@ -278,19 +300,17 @@ export default function Home() {
             </h3>
 
             <p className="text-lg text-white mt-4 leading-relaxed">
-           Our primary school education program is tutor facilitated, allowing a comprehensive 
-            one-on-one approach to a learner's educational needs. With different curriculum 
-            options to choose from, parents can provide a tailored education that prepares 
-            each child to their fullest potential.
+              Our primary school education program is tutor facilitated, allowing a comprehensive 
+              one-on-one approach to a learner's educational needs. With different curriculum 
+              options to choose from, parents can provide a tailored education that prepares 
+              each child to their fullest potential.
             </p>
 
             <p className="text-lg text-white mt-4 leading-relaxed">
-             Social interaction and physical education are also vital for holistic development. 
-            We create opportunities for learners to explore their unique interests in safe, 
-            nurturing environments led by licensed and qualified instructors.
+              Social interaction and physical education are also vital for holistic development. 
+              We create opportunities for learners to explore their unique interests in safe, 
+              nurturing environments led by licensed and qualified instructors.
             </p>
-
-    
 
             <a
               href="#"
