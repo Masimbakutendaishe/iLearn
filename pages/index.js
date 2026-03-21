@@ -283,15 +283,49 @@ export default function Home() {
 
         <div className="flex flex-wrap items-center gap-10 max-w-6xl mx-auto">
 
-          <div className="flex-1 flex justify-center">
-            <Image
-              src="/about us.png"
-              alt="About Us"
-              width={500}
-              height={500}
-              className="breathe"
-            />
-          </div>
+        <div className="flex-1 flex justify-center relative overflow-hidden">
+
+  <style jsx>{`
+    .slide {
+      position: absolute;
+      opacity: 0;
+      transition: opacity 1.5s ease-in-out;
+    }
+
+    .slide.active {
+      opacity: 1;
+      position: relative;
+    }
+  `}</style>
+
+  {[1, 2, 3].map((num, index) => (
+    <Image
+      key={num}
+      src={`/about_main_${num}.png`}
+      alt={`About ${num}`}
+      width={500}
+      height={500}
+      className={`breathe slide ${index === 0 ? "active" : ""}`}
+      id={`slide-${index}`}
+    />
+  ))}
+
+  <script
+    dangerouslySetInnerHTML={{
+      __html: `
+        let current = 0;
+        const slides = document.querySelectorAll('[id^="slide-"]');
+
+        setInterval(() => {
+          slides[current].classList.remove('active');
+          current = (current + 1) % slides.length;
+          slides[current].classList.add('active');
+        }, 4000);
+      `,
+    }}
+  />
+
+</div>
 
           <div className="flex-1">
 
