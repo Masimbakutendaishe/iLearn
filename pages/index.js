@@ -278,15 +278,19 @@ export default function Home() {
             </h3>
 
             <p className="text-lg text-white mt-4 leading-relaxed">
-              At iLEARN ACADEMY, we believe in holistic development and
-              nurturing every child’s curiosity and creativity.
+           Our primary school education program is tutor facilitated, allowing a comprehensive 
+            one-on-one approach to a learner's educational needs. With different curriculum 
+            options to choose from, parents can provide a tailored education that prepares 
+            each child to their fullest potential.
             </p>
 
             <p className="text-lg text-white mt-4 leading-relaxed">
-              We provide nutritious meals, caring teachers, and a safe
-              inspiring environment where children can learn, grow,
-              and build confidence.
+             Social interaction and physical education are also vital for holistic development. 
+            We create opportunities for learners to explore their unique interests in safe, 
+            nurturing environments led by licensed and qualified instructors.
             </p>
+
+    
 
             <a
               href="#"
