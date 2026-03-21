@@ -6,12 +6,12 @@ export default function Gallery() {
 
 
   const galleryImages = [
-    { id: 1, image: '/gallery-1.jpg' },
-    { id: 2, image: '/gallery-2.jpg' },
-    { id: 3, image: '/gallery-3.jpg' },
-    { id: 4, image: '/gallery-4.jpg' },
-    { id: 5, image: '/gallery-5.jpg' },
-    { id: 6, image: '/gallery-6.jpg' },
+    { id: 1, image: '/gallery_1.JPG' },
+    { id: 2, image: '/gallery_2.JPG' },
+    { id: 3, image: '/gallery_3.JPG' },
+    { id: 4, image: '/gallery_4.JPG' },
+    { id: 5, image: '/gallery_5.JPG' },
+    { id: 6, image: '/gallery_6.JPG' },
   ];
 
   return (
