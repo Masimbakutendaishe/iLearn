@@ -319,8 +319,8 @@ export default function Home() {
   <div className="slideshow">
     <div className="slides">
       <Image src="/abt_main_1.png" alt="About 1" width={500} height={500} />
-      <Image src="/about_main_2.png" alt="About 2" width={500} height={500} />
-      <Image src="/about_main_3.png" alt="About 3" width={500} height={500} />
+      <Image src="/abt_main_2.png" alt="About 2" width={500} height={500} />
+      <Image src="/abt_main_3.png" alt="About 3" width={500} height={500} />
     </div>
   </div>
 </div>
