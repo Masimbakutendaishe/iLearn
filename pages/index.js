@@ -307,7 +307,7 @@ export default function Home() {
     {/* MAIN MESSAGE CARD */}
     <div className="w-full bg-white/10 backdrop-blur-lg p-6 rounded-2xl text-white">
       <p className="text-lg leading-relaxed">
-        iLEARN ACADEMY is a future-driven preschool dedicated to providing
+        iLEARN ACADEMY is a future-driven school dedicated to providing
         an engaging, nurturing, and innovative learning environment.
       </p>
     </div>
