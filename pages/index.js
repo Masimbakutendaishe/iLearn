@@ -143,82 +143,60 @@ export default function Home() {
         }
 
         /* 🔥🔥🔥 ENHANCED MOBILE EXPERIENCE 🔥🔥🔥 */
-        @media (max-width: 768px) {
+       /* 🔥 TABLET + MOBILE FIX (DOES NOT AFFECT DESKTOP) */
+@media (max-width: 1024px) {
 
-          .hero-section {
-            padding: 3rem 1.2rem;
-            text-align: center;
-            background-size: cover;
-            animation: bgSlide 18s ease-in-out infinite;
-          }
+  .hero-section {
+    padding: 4rem 1.5rem;
+    text-align: center;
+    background-size: cover;
+    animation: bgSlide 18s ease-in-out infinite;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+  }
 
-          h1 {
-            font-size: 2.5rem !important;
-            line-height: 1.15;
-            letter-spacing: 1.5px;
-          }
+  /* Make the content actually fill the screen */
+  .hero-section .relative {
+    width: 100%;
+  }
 
-          p {
-            font-size: 1.05rem;
-            line-height: 1.6;
-          }
+   h1 {
+    font-size: 4rem !important;
+    line-height: 1.2;
+  }
 
-          .hero-section p:first-of-type {
-            font-size: 1.3rem;
-            font-weight: 700;
-          }
+  p {
+    font-size: 2rem !important;
+    line-height: 1.7;
+  }
 
-          .btn-3d {
-            width: 100%;
-            max-width: 300px;
-            font-size: 1.05rem;
-            padding: 0.9rem;
-          }
+    h3 {
+    font-size: 2.2rem !important;
+  }
 
-          .hero-section .relative {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.6rem;
-          }
+    button {
+    font-size: 1.6rem !important;
+    padding: 1.2rem 2.5rem !important;
+  }
+  /* 🔥 FORCE CONTENT TO FILL SPACE (fix blank area issue) */
+  .hero-section .content-wrapper {
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
 
-          .hero-section .relative {
-            background: rgba(0,0,0,0.45);
-            padding: 1.8rem 1.2rem;
-            border-radius: 20px;
-            backdrop-filter: blur(12px);
-          }
+  /* 🔥 GLASS EFFECT FIX */
+  .glass-card {
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(12px);
+    border-radius: 20px;
+    padding: 1.5rem;
+    width: 100%;
+  }
 
-          .about-bg {
-            padding: 3.5rem 1.3rem;
-          }
-
-          .about-bg h1 {
-            font-size: 2.2rem;
-          }
-
-          .about-bg .flex {
-            flex-direction: column;
-            text-align: center;
-            gap: 1.5rem;
-          }
-
-          .about-bg img {
-            max-width: 280px;
-          }
-
-          .about-bg .flex-1:last-child {
-            background: rgba(0,0,0,0.45);
-            padding: 1.6rem;
-            border-radius: 20px;
-            backdrop-filter: blur(12px);
-          }
-
-          .about-bg h3 {
-            font-size: 1.6rem;
-          }
-
-        }
+}
 
         /* 🎞️ ABOUT SLIDESHOW */
 .slideshow {
@@ -255,57 +233,114 @@ export default function Home() {
       `}</style>
 
       {/* HERO SECTION */}
-      <section className="hero-section relative flex items-center justify-center min-h-screen text-center p-6">
+    {/* HERO SECTION */}
+<section className="mt-20 hero-section relative flex flex-col items-center justify-start min-h-screen text-center p-6">
 
-        <div className="absolute inset-0 bg-black/60"></div>
+<div className="absolute inset-0 bg-black/60"></div>
 
-        <div className="relative z-10 max-w-3xl">
+<div className="relative z-10 w-full max-w-6xl">
 
-          <h1 className="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight">
+  {/* TITLE */}
+  <h1 className="mt-12 text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight text-center">
+    <span className="block">
+      {welcomeText.split('').map((letter, i) => (
+        <span key={i} className="fun-letter" style={{ animationDelay: `${i * 0.05}s` }}>
+          {letter === " " ? "\u00A0" : letter}
+        </span>
+      ))}
+    </span>
 
-            {welcomeText.split('').map((letter, i) => (
-              <span
-                key={i}
-                className="fun-letter active:scale-125 transition-transform duration-150"
-                style={{ animationDelay: `${i * 0.05}s` }}
-              >
-                {letter === " " ? "\u00A0" : letter}
-              </span>
-            ))}
+    <span className="block whitespace-nowrap">
+      {academyText.split('').map((letter, i) => (
+        <span key={i} className="fun-letter" style={{ animationDelay: `${i * 0.05}s` }}>
+          {letter === " " ? "\u00A0" : letter}
+        </span>
+      ))}
+    </span>
+  </h1>
 
-            <br />
+  {/* 🔥 DESKTOP LAYOUT */}
+  <div className="hidden lg:flex gap-8 mt-12">
 
-            {academyText.split('').map((letter, i) => (
-              <span
-                key={i}
-                className="fun-letter"
-                style={{ animationDelay: `${i * 0.05}s` }}
-              >
-                {letter === " " ? "\u00A0" : letter}
-              </span>
-            ))}
+    {/* LEFT CARD */}
+    <div className="flex-1 bg-white/10 backdrop-blur-lg p-6 rounded-2xl text-white">
+      <p className="text-lg md:text-xl leading-relaxed">
+        iLEARN ACADEMY is a future-driven school dedicated to providing
+        an engaging, nurturing, and innovative learning environment.
+      </p>
 
-          </h1>
+      <button className="mt-6 px-6 py-3 bg-orange-500 rounded-lg font-bold btn-3d">
+        Apply Now
+      </button>
+    </div>
 
-          <p className="text-white font-semibold mt-4 text-xl">
-            iYanda iMfundo
-          </p>
+    {/* RIGHT CARD */}
+    <div className="flex-1 bg-white/10 backdrop-blur-lg p-6 rounded-2xl text-white">
 
-          <p className="mt-6 text-lg text-gray-200">
-            iLEARN ACADEMY is a future-driven preschool in South Africa,
-            dedicated to providing an engaging, nurturing, and innovative
-            learning environment for young minds.
-          </p>
+      <h3 className="text-xl font-bold mb-4">2026 Year Plan</h3>
 
-          <a
-            href="#about"
-            className="inline-block px-8 py-3 mt-8 text-white bg-orange-500 rounded-lg btn-3d font-bold"
-          >
-            Learn More
-          </a>
+      <table className="w-full text-sm text-left">
+        <thead>
+          <tr>
+            <th>Term</th>
+            <th>Dates</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Term 1</td><td>Jan - Mar</td></tr>
+          <tr><td>Term 2</td><td>Apr - Jun</td></tr>
+          <tr><td>Term 3</td><td>Jul - Sep</td></tr>
+          <tr><td>Term 4</td><td>Oct - Dec</td></tr>
+        </tbody>
+      </table>
 
-        </div>
-      </section>
+      <button className="mt-6 px-6 py-3 bg-yellow-400 text-black rounded-lg font-bold btn-3d">
+        Download PDF
+      </button>
+    </div>
+
+  </div>
+
+  {/* 🔥 MOBILE / TABLET LAYOUT */}
+  <div className="lg:hidden mt-10 flex flex-col items-center gap-6">
+
+    {/* MAIN MESSAGE CARD */}
+    <div className="w-full bg-white/10 backdrop-blur-lg p-6 rounded-2xl text-white">
+      <p className="text-lg leading-relaxed">
+        iLEARN ACADEMY is a future-driven preschool dedicated to providing
+        an engaging, nurturing, and innovative learning environment.
+      </p>
+    </div>
+
+    <button className="px-10 py-5 text-lg md:text-xl bg-green-600 rounded-xl text-white font-extrabold btn-3d">
+  APPLY NOW
+</button>
+
+    {/* TWO SMALL CARDS */}
+    <div className="flex gap-4 w-full">
+
+      {/* LEFT */}
+      <div className="flex-1 bg-white/10 backdrop-blur-lg p-4 rounded-xl text-white text-sm">
+        <h3 className="font-bold mb-2">2026 Plan</h3>
+        <p>Full academic calendar available.</p>
+
+        <button className="mt-3 px-3 py-2 bg-yellow-400 text-black rounded font-bold">
+          Download
+        </button>
+      </div>
+
+      {/* RIGHT */}
+      <div className="flex-1 bg-white/10 backdrop-blur-lg p-4 rounded-xl text-white text-sm">
+        <h3 className="font-bold mb-2">Parents Notice</h3>
+        <p>New term starts soon. Prepare uniforms and stationery.</p>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>
+</section>
 
       {/* ABOUT SECTION */}
       <section className="py-20 px-6 about-bg" id="about">
