@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { GraduationCap, HeartPulse, ShieldCheck } from 'lucide-react';
 
 export default function Team() {
   const educators = [
@@ -22,7 +23,7 @@ export default function Team() {
   return (
     <>
       <section
-        className="mt-20 py-20 px-6 relative bg-gradient-to-br from-green-900 via-green-800 to-orange"
+        className="mt-20 py-20 px-6 relative bg-gradient-to-br from-green-900 via-green-800 to-orange-500"
         id="team"
       >
         <div className="relative max-w-6xl mx-auto text-center text-white">
@@ -46,8 +47,11 @@ export default function Team() {
 
             {/* Educators */}
             <div className="bg-white/90 backdrop-blur p-8 rounded-2xl shadow-xl hover:scale-105 transition text-gray-800">
-              <Image src="/teacherc.jpg" alt="Teachers" width={80} height={80} className="mx-auto mb-4" />
               
+              <div className="flex justify-center mb-4">
+                <GraduationCap size={50} className="text-green-900" />
+              </div>
+
               <h3 className="text-2xl font-bold mb-3">Educators</h3>
               <p className="text-gray-600 mb-6">
                 Our passionate teachers create engaging learning experiences, ensuring each child 
@@ -72,8 +76,11 @@ export default function Team() {
 
             {/* Health Professionals */}
             <div className="bg-white/90 backdrop-blur p-8 rounded-2xl shadow-xl hover:scale-105 transition text-gray-800">
-              <Image src="/nursec.jpg" alt="Health Professionals" width={80} height={80} className="mx-auto mb-4" />
               
+              <div className="flex justify-center mb-4">
+                <HeartPulse size={50} className="text-red-500" />
+              </div>
+
               <h3 className="text-2xl font-bold mb-3">Health Professionals</h3>
               <p className="text-gray-600 mb-6">
                 Our health team ensures children's physical well-being, monitoring development 
@@ -98,8 +105,11 @@ export default function Team() {
 
             {/* Support Staff */}
             <div className="bg-white/90 backdrop-blur p-8 rounded-2xl shadow-xl hover:scale-105 transition text-gray-800">
-              <Image src="/policec.jpg" alt="Support Staff" width={80} height={80} className="mx-auto mb-4" />
               
+              <div className="flex justify-center mb-4">
+                <ShieldCheck size={50} className="text-orange-500" />
+              </div>
+
               <h3 className="text-2xl font-bold mb-3">Support Staff</h3>
               <p className="text-gray-600 mb-6">
                 From security to catering and cleaning, our support staff ensure a safe, hygienic, 
