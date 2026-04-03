@@ -9,7 +9,7 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
 
-  const colors = ['text-green-500', 'text-yellow-400', 'text-orange-500', 'text-pink-500'];
+  const colors = ['text-orange','text-green-500', 'text-yellow-400'];
   const text = "iLEARN ACADEMY";
 
   return (
@@ -42,29 +42,34 @@ const Navbar = () => {
       </a>
 
       {/* NAV LINKS */}
-      <nav className={`absolute md:static top-20 left-0 w-full md:w-auto md:flex bg-white md:bg-transparent transition-all duration-500 ease-in-out ${menuOpen ? 'block animate-fadeIn' : 'hidden md:block'}`}>
-        <div className="flex flex-col md:flex-row md:items-center text-lg font-semibold">
+
+
+      <nav className={`absolute mt-7 md:static top-20 left-0 w-full md:w-auto md:flex bg-white md:bg-transparent transition-all duration-500 ease-in-out ${menuOpen ? 'block animate-fadeIn' : 'hidden md:block'}`}>
+
+<div className="flex flex-col md:flex-row md:items-center text-lg font-semibold px-4 md:px-0 bg-white md:bg-transparent rounded-2xl md:rounded-none shadow-lg md:shadow-none mt-2 md:mt-0 border border-gray-200 md:border-0">
+
 
           {[
-            { name: 'ABOUT US', color: 'text-orange-500', link: '/About' },
+            { name: 'ABOUT US', color: 'text-yellow-400', link: '/About' },
             { name: 'THE TEAM', color: 'text-green-500', link: '/Teacher' },
-            { name: 'ACTIVITIES', color: 'text-orange-400', link: '/Activities' },
-            { name: 'GALLERY', color: 'text-yellow-400', link: '/Gallery' },
-            { name: 'CONTACT', color: 'text-green-600', link: '/Contact' }
+            { name: 'ACTIVITIES', color: 'text-yellow-400', link: '/Activities' },
+            { name: 'GALLERY', color: 'text-green-500', link: '/Gallery' },
+            { name: 'CONTACT', color: 'text-yellow-400', link: '/Contact' }
           ].map((item, index) => (
             <a
-              key={index}
-              href={item.link}
-              className={`p-4 ${item.color} relative group transition-all duration-500 hover:scale-125 hover:-translate-y-1 hover:rotate-3`}
-            >
-              {item.name}
-
-              {/* Underline animation */}
-              <span className="absolute left-0 bottom-1 w-0 h-[4px] bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full transition-all duration-500 group-hover:w-full"></span>
-
-              {/* Glow effect */}
-              <span className="absolute inset-0 rounded-lg opacity-0 group-hover:opacity-30 bg-gradient-to-r from-green-300 via-yellow-300 to-pink-400 blur-md transition duration-500"></span>
-            </a>
+            key={index}
+            href={item.link}
+            className={`group relative p-4 my-1 rounded-xl ${item.color} transition-all duration-300 
+            hover:bg-gray-100 hover:scale-[1.03] active:scale-95`}
+          >
+            {item.name}
+          
+            {/* underline */}
+            <span className="absolute left-4 bottom-2 w-0 h-[3px] bg-gradient-to-r from-green-500 via-yellow-400 to-orange-500 rounded-full transition-all duration-300 group-hover:w-[80%]"></span>
+          
+            {/* soft glow */}
+            <span className="absolute inset-0 rounded-xl opacity-0 group-hover:opacity-20 bg-gradient-to-r from-green-300 via-yellow-300 to-pink-400 blur-lg transition duration-300"></span>
+          </a>
           ))}
 
         </div>
