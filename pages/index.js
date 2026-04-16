@@ -352,9 +352,12 @@ export default function Home() {
         an engaging, nurturing, and innovative learning environment.
       </p>
 
-      <button className="main-btn mt-6 px-6 py-3 text-white bg-green-700 rounded-lg font-bold btn-3d2">
-        APPLY NOW
-      </button>
+         <a
+  href="/apply"
+  className="main-btn mt-6 px-6 py-3 text-white bg-green-700 rounded-lg font-bold btn-3d2 inline-block"
+>
+  APPLY NOW
+</a>
    
       <div className="mt-6 flex gap-4">
       <div className="mt-6 flex flex-col sm:flex-row gap-4">
