@@ -14,7 +14,7 @@ export default function Apply() {
   const addContact = () => setContacts([...contacts, {}]);
 
   return (
-    <div className={`${nunito.className} mt-40 min-h-screen bg-black text-white p-6`}>
+    <div className={`${nunito.className} mt-40 min-h-screen bg-green-900 text-white p-6`}>
 
       <style jsx>{`
         .card {
