@@ -1,6 +1,6 @@
 import Image from "next/image";
 import { Nunito } from "next/font/google";
-
+import Link from 'next/link';
 const nunito = Nunito({
   subsets: ["latin"],
   weight: ["400", "600", "700", "800"],
@@ -352,12 +352,11 @@ export default function Home() {
         an engaging, nurturing, and innovative learning environment.
       </p>
 
-         <a
-  href="/apply"
-  className="main-btn mt-6 px-6 py-3 text-white bg-green-700 rounded-lg font-bold btn-3d2 inline-block"
->
-  APPLY NOW
-</a>
+     <Link href="/Apply">
+  <button className="mt-10 px-10 py-5 text-lg md:text-xl bg-green-600 rounded-xl text-white font-extrabold btn-3d">
+    APPLY NOW
+  </button>
+</Link>
    
       <div className="mt-6 flex gap-4">
       <div className="mt-6 flex flex-col sm:flex-row gap-4">
