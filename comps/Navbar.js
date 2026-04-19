@@ -46,6 +46,14 @@ const Navbar = () => {
           ))}
         </div>
       </a>
+{/* ✅ HAMBURGER ICON (FIXED) */}
+<div className="md:hidden text-2xl text-green-900 z-50 ml-auto mr-3">
+  {menuOpen ? (
+    <FaTimes onClick={() => setMenuOpen(false)} />
+  ) : (
+    <FaBars onClick={() => setMenuOpen(true)} />
+  )}
+</div>
 
       {/* NAV LINKS */}
 
