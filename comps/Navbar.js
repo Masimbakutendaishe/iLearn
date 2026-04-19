@@ -4,14 +4,20 @@ import { useState } from 'react';
 import { FaUser, FaBars, FaTimes, FaUserGraduate, FaChalkboardTeacher, FaUsers } from 'react-icons/fa';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useRouter } from "next/navigation";
+
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const [loginOpen, setLoginOpen] = useState(false);
-
+  const router = useRouter();
   const colors = ['text-orange','text-green-500', 'text-yellow-400'];
   const text = "iLEARN ACADEMY";
-
+  
+  const [authOpen, setAuthOpen] = useState(false);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 md:px-8 py-5 bg-white/90 backdrop-blur-lg shadow-xl border-b border-gray-200">
 
@@ -75,21 +81,17 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* RIGHT ICONS */}
-      <div className="flex items-center">
-        
-        <FaUser
-          className="text-2xl text-black cursor-pointer mr-6 transition-all duration-300 hover:text-orange-500 hover:scale-125 hover:rotate-12"
-          onClick={() => setLoginOpen(!loginOpen)}
-        />
+      <div className="relative group">
+  <FaUser
+    className="text-2xl text-green-900 cursor-pointer mr-6 transition-all duration-300 hover:text-orange-500 hover:scale-125 hover:rotate-12"
+    onClick={() => setAuthOpen(true)}
+  />
 
-        <div
-          className="text-2xl text-black cursor-pointer md:hidden transition-all duration-300 hover:text-orange-500 hover:scale-125 hover:rotate-12"
-          onClick={() => setMenuOpen(!menuOpen)}
-        >
-          {menuOpen ? <FaTimes /> : <FaBars />}
-        </div>
-      </div>
+  {/* Tooltip */}
+  <span className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-green-900 text-white text-xs px-3 py-1 rounded-lg opacity-0 group-hover:opacity-100 transition-all duration-300 whitespace-nowrap shadow-lg">
+    Open Admin Centre
+  </span>
+</div>
 
       {/* LOGIN DROPDOWN */}
       {loginOpen && (
@@ -172,8 +174,70 @@ const Navbar = () => {
         }
       `}</style>
 
+{authOpen && (
+  <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
+
+    <div className="bg-white p-6 mt-60 rounded-2xl w-80 shadow-2xl relative flex flex-col justify-center">
+
+      <h2 className="text-2xl font-bold mb-4 text-green-600 text-center">
+        Admin Login
+      </h2>
+
+      {/* USERNAME */}
+      <input
+        className="w-full p-3 border rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-green-400"
+        placeholder="Username"
+        value={username}
+        onChange={(e) => setUsername(e.target.value)}
+      />
+
+      {/* PASSWORD */}
+      <input
+        type="password"
+        className="w-full p-3 border rounded-lg mb-3 focus:outline-none focus:ring-2 focus:ring-green-400"
+        placeholder="Password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+      />
+
+      {/* ERROR */}
+      {error && (
+        <p className="text-red-500 text-sm mb-2 text-center">
+          {error}
+        </p>
+      )}
+
+      {/* LOGIN BUTTON */}
+      <button
+        className="w-full bg-green-500 text-white py-2 rounded-lg font-bold hover:bg-green-600 transition-all"
+        onClick={() => {
+          if (username === "admin" && password === "1234") {
+            setAuthOpen(false);
+            router.push("/Admin");
+          } else {
+            setError("Invalid username or password");
+          }
+        }}
+      >
+        Login
+      </button>
+
+      {/* CLOSE */}
+      <button
+        className="absolute top-3 right-4 text-gray-500 hover:text-black text-xl"
+        onClick={() => setAuthOpen(false)}
+      >
+        ✕
+      </button>
+
+    </div>
+  </div>
+)}
     </header>
   );
+
+  
 };
+
 
 export default Navbar;
