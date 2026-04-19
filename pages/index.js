@@ -462,9 +462,11 @@ export default function Home() {
       </p>
     </div>
 
-    <button className="px-10 py-5 text-lg md:text-xl bg-green-600 rounded-xl text-white font-extrabold btn-3d">
-  APPLY NOW
-</button>
+    <Link href="/Apply">
+  <button className="mt-10 px-10 py-5 text-lg md:text-xl bg-green-600 rounded-xl text-white font-extrabold btn-3d">
+    APPLY NOW
+  </button>
+</Link>
 
     {/* TWO SMALL CARDS */}
     <div className="flex gap-4 w-full">
