@@ -94,10 +94,10 @@ const Footer = () => {
           <h3 className="text-2xl md:text-3xl font-bold mb-4">Follow Us</h3>
 
           <div className="flex gap-4 mt-4">
-            <a href="https://facebook.com">
+            <a href="www.facebook.com/profile.php?id=61579675171897">
               <Image src="/fbicon.png" alt="Facebook" width={32} height={32} />
             </a>
-            <a href="https://instagram.com">
+            <a href="https://www.instagram.com/ilearn_imfundo_academy?igsh=MWUwc3pydjI5MWU2eg==">
               <Image src="/igicon.png" alt="Instagram" width={32} height={32} />
             </a>
             <a href="https://linkedin.com">
