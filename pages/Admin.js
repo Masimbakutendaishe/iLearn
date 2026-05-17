@@ -13,7 +13,7 @@ import {
   FaTimesCircle,
 } from "react-icons/fa";
 import Link from "next/link";
-import { supabase } from "../lib/supabase";
+import { supabase } from "/lib/supabase";
 
 const nunito = Nunito({
   subsets: ["latin"],
