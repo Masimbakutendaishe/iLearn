@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { Nunito } from "next/font/google";
 import { jsPDF } from "jspdf";
-import { supabase } from "@/lib/supabase";
+import { supabase } from "../lib/supabase";
 
 const nunito = Nunito({
   subsets: ["latin"],
