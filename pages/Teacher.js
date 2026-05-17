@@ -58,20 +58,7 @@ export default function Team() {
                 develops academically, socially, and emotionally.
               </p>
 
-              <div className="flex justify-center gap-4">
-                {educators.map((person, index) => (
-                  <div key={index} className="text-center">
-                    <Image
-                      src={person.image}
-                      alt={person.name}
-                      width={60}
-                      height={60}
-                      className="rounded-full object-cover mx-auto"
-                    />
-                    <p className="text-sm mt-2 font-medium">{person.name}</p>
-                  </div>
-                ))}
-              </div>
+              
             </div>
 
             {/* Health Professionals */}
@@ -87,20 +74,7 @@ export default function Team() {
                 and promoting healthy habits in a supportive environment.
               </p>
 
-              <div className="flex justify-center gap-4">
-                {healthTeam.map((person, index) => (
-                  <div key={index} className="text-center">
-                    <Image
-                      src={person.image}
-                      alt={person.name}
-                      width={60}
-                      height={60}
-                      className="rounded-full object-cover mx-auto"
-                    />
-                    <p className="text-sm mt-2 font-medium">{person.name}</p>
-                  </div>
-                ))}
-              </div>
+              
             </div>
 
             {/* Support Staff */}
@@ -116,20 +90,7 @@ export default function Team() {
                 and welcoming environment for every child.
               </p>
 
-              <div className="flex justify-center gap-4">
-                {supportStaff.map((person, index) => (
-                  <div key={index} className="text-center">
-                    <Image
-                      src={person.image}
-                      alt={person.name}
-                      width={60}
-                      height={60}
-                      className="rounded-full object-cover mx-auto"
-                    />
-                    <p className="text-sm mt-2 font-medium">{person.name}</p>
-                  </div>
-                ))}
-              </div>
+             
             </div>
 
           </div>
