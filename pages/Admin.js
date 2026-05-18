@@ -53,13 +53,26 @@ export default function Admin() {
     }
   };
 
-  const updateApplicationStatus = async (id, accepted, reason) => {
+  const updateApplicationStatus = async (
+    id,
+    accepted,
+    reason,
+    application_status
+  ) => {
     const { error } = await supabase
       .from("applications")
-      .update({ accepted, rejection_reason: reason })
+      .update({
+        accepted,
+        rejection_reason: reason,
+        application_status,
+        status_comment: reason,
+      })
       .eq("id", id);
 
-    if (error) return console.error(error);
+    if (error) {
+      console.error(error);
+      return;
+    }
 
     fetchApplications();
   };
@@ -138,7 +151,6 @@ export default function Admin() {
           top: 0;
         }
 
-        /* 🌊 Background blobs */
         .blob1, .blob2, .blob3 {
           position: absolute;
           width: 400px;
@@ -176,12 +188,10 @@ export default function Admin() {
         }
       `}</style>
 
-      {/* TITLE */}
       <h1 className="mt-6 text-5xl font-extrabold text-center mb-10 text-transparent bg-clip-text bg-gradient-to-r from-green-500 to-yellow-400 drop-shadow-lg">
         iLEARN ADMIN CENTRE
       </h1>
 
-      {/* METRICS */}
       <div className="grid md:grid-cols-4 gap-6 mb-10">
 
         <Link href="/Applications">
@@ -218,7 +228,6 @@ export default function Admin() {
 
       </div>
 
-      {/* ANNOUNCEMENTS */}
       <div className="glass p-6 mb-8">
         <h2 className="text-2xl font-bold mb-4 flex items-center gap-2">
           <FaBullhorn /> Announcements
@@ -253,7 +262,6 @@ export default function Admin() {
         </div>
       </div>
 
-      {/* TABLE */}
       <div className="glass p-6">
         <h2 className="text-2xl font-bold mb-4">Student Applications</h2>
 
@@ -296,8 +304,14 @@ export default function Admin() {
 }
 
 function ApplicationRow({ app, index, updateApplicationStatus }) {
-  const [accepted, setAccepted] = useState(app.accepted || false);
-  const [reason, setReason] = useState(app.rejection_reason || "");
+
+  const [accepted, setAccepted] = useState(
+    app.application_status === "accepted"
+  );
+
+  const [reason, setReason] = useState(
+    app.status_comment || app.rejection_reason || ""
+  );
 
   return (
     <tr className="hover:bg-white/40 transition">
@@ -340,13 +354,21 @@ function ApplicationRow({ app, index, updateApplicationStatus }) {
           className="p-2 rounded-lg border bg-white/60"
           value={reason}
           onChange={(e) => setReason(e.target.value)}
+          placeholder="Reason / Comment"
         />
       </td>
 
       <td>
         <button
           className="btn"
-          onClick={() => updateApplicationStatus(app.id, accepted, reason)}
+          onClick={() =>
+            updateApplicationStatus(
+              app.id,
+              accepted,
+              reason,
+              accepted ? "accepted" : "declined"
+            )
+          }
         >
           Save
         </button>
